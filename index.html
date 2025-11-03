@@ -143,7 +143,7 @@
   })();
 
   // ---------- Preload JSON on startup ----------
-  const PRELOAD_URL = '/data/pit_locations.json';
+  const PRELOAD_URL = './data/pit_locations.json';
   (async function fetchPreload(){
     try {
       const resp = await fetch(PRELOAD_URL, { cache: 'no-store' });
