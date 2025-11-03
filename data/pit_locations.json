@@ -1,1 +1,2312 @@
-
+[
+  {
+    "street_num": "10",
+    "street_dir": "E",
+    "street": "ALGONQUIN RD",
+    "business": "VACANT",
+    "description": "ON CORNER OF ARLINGTON HEIGHTS AND ALGONQUIN ROAD 15 FEET SOUTH FROM HYDRANT",
+    "lat": 42.04447,
+    "lng": -87.98273,
+    "serial": "7194403"
+  },
+  {
+    "street_num": "100",
+    "street_dir": "E",
+    "street": "ALGONQUIN RD",
+    "business": "MITSUWA MARKETPLACE PIT 1 WEST",
+    "description": "18 FEET EAST OF ARLINGTON HEIGHTS ROAD ENTRANCE 7 FEET NORTH OF DRIVE",
+    "lat": 42.04532,
+    "lng": -87.98255,
+    "serial": "8025619"
+  },
+  {
+    "street_num": "100",
+    "street_dir": "E",
+    "street": "ALGONQUIN RD",
+    "business": "MITSUWA MARKETPLACE PIT 2 EAST",
+    "description": "ON TONNE SOUTHEAST CORNER OF PLAZA 12 FEET FROM NORTH ENTRANCE 4 FEET FROM SIDE WALK",
+    "lat": 42.04475,
+    "lng": -87.97981,
+    "serial": "8019429"
+  },
+  {
+    "street_num": "125",
+    "street_dir": "E",
+    "street": "ALGONQUIN RD",
+    "business": "NEW LONDON",
+    "description": "3 FEET SOUTH OF ALGONQUIN. LOCATED IN WEST CURB OF ENTRANCE.",
+    "lat": 42.04287,
+    "lng": -87.97997,
+    "serial": "5990575"
+  },
+  {
+    "street_num": "155",
+    "street_dir": "E",
+    "street": "ALGONQUIN RD",
+    "business": "DAILY HERALD",
+    "description": "10 FEET WEST OF TOLLWAY HERALD SIGN.",
+    "lat": 42.03981,
+    "lng": -87.98045,
+    "serial": "7045903"
+  },
+  {
+    "street_num": "222",
+    "street_dir": "E",
+    "street": "ALGONQUIN RD",
+    "business": "BOSTON BLACKIES PIT 60 W ENDPOINTS",
+    "description": "8 FEET FROM NORTH SIDE OF BUILDING LARGE LID",
+    "lat": 42.04327,
+    "lng": -87.97883,
+    "serial": "7236441"
+  },
+  {
+    "street_num": "475",
+    "street_dir": "E",
+    "street": "ALGONQUIN RD",
+    "business": "W.W.GRAINGER",
+    "description": "45 FEET SOUTH OF ALGONQUIN.  30 FEET EAST OF WEST ENTRANCE.",
+    "lat": 42.04179,
+    "lng": -87.97745,
+    "serial": "6092153"
+  },
+  {
+    "street_num": "545",
+    "street_dir": "E",
+    "street": "ALGONQUIN RD",
+    "business": "ACG- GOLDEN CORRIDOR LLC",
+    "description": "15 FEET FROM SOUTH OF ALGONQUIN ROAD 11 FEET FROM 545 SIGN",
+    "lat": 42.04165,
+    "lng": -87.97661,
+    "serial": "8025614"
+  },
+  {
+    "street_num": "22",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD",
+    "business": "RED ROOF INN #102",
+    "description": "10 FEET NORTH OF ALGONQUIN ROAD. 30 FEET SOUTHEAST OF RED ROOF SIGN.",
+    "lat": 42.04473,
+    "lng": -87.98399,
+    "serial": "7098134"
+  },
+  {
+    "street_num": "75",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD",
+    "business": "DOUBLE TREE HOTEL",
+    "description": "18 FEET SOUTH OF ALGONQUIN ROAD. 33 FEET WEST OF DENNY'S ENTRANCE.",
+    "lat": 42.04452,
+    "lng": -87.9847,
+    "serial": "6043430"
+  },
+  {
+    "street_num": "85",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD",
+    "business": "HAMILTON PARTNERS",
+    "description": "DIRECTLY SOUTH OF BUILDING NEAR EXPRESSWAY FENCE.",
+    "lat": 42.04319,
+    "lng": -87.98816,
+    "serial": "6043428"
+  },
+  {
+    "street_num": "95",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD",
+    "business": "HAMILTON PARTNERS",
+    "description": "45 FEET DIRECTLY WEST OF NORTHWEST CORNER OF BUILDING.",
+    "lat": 42.04557,
+    "lng": -87.98698,
+    "serial": "7045933"
+  },
+  {
+    "street_num": "100",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD",
+    "business": "MARRIOT HOTEL",
+    "description": "100 FEET WEST OF MARRIOT SIGN. 15 FEET NORTH OF ALGONQUIN ROAD.",
+    "lat": 42.04531,
+    "lng": -87.98548,
+    "serial": "7147721"
+  },
+  {
+    "street_num": "412",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD",
+    "business": "ARLINGTON HEIGHTS ANIMAL HOSPITAL",
+    "description": "57 FEET EAST OF HOSPITAL SIGN",
+    "lat": 42.04651,
+    "lng": -87.98739,
+    "serial": "9307247"
+  },
+  {
+    "street_num": "441",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD",
+    "business": "MOTEL 6",
+    "description": "50 FEET NORTHEAST OF BUILDING NEXT TO HYDRANT.",
+    "lat": 42.04637,
+    "lng": -87.98787,
+    "serial": "7203871"
+  },
+  {
+    "street_num": "550",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD",
+    "business": "PACE BUS",
+    "description": "PIT NEAR WEST DRIVE",
+    "lat": 42.04764,
+    "lng": -87.98828,
+    "serial": "00809322"
+  },
+  {
+    "street_num": "700",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD",
+    "business": "ARLINGTON CENTER",
+    "description": "30 FEET FROM SOUTHEAST CORNER OF BUILDING",
+    "lat": 42.04979,
+    "lng": -87.99128,
+    "serial": "D5398257"
+  },
+  {
+    "street_num": "703",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD",
+    "business": "L.B. ANDERSON",
+    "description": "40 FEET NORTH EAST FROM CORNER OF BUILDING. 55 FEET FROM ALGONQUIN ROAD.",
+    "lat": 42.04866,
+    "lng": -87.99055,
+    "serial": "5470784"
+  },
+  {
+    "street_num": "711",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD",
+    "business": "WEBER MARKING SYSTEMS",
+    "description": "EAST SIDE OF BUILDING NEXT TO STAND PIPE IN PARKING LOT. 80 FEET EAST OF DOCK DOOR.",
+    "lat": 42.04778,
+    "lng": -87.99288,
+    "serial": "5195080"
+  },
+  {
+    "street_num": "980",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD UT",
+    "business": "ST. ANDREWS PROPERTY INC. EAST PIT  60 W ENDPOINTS",
+    "description": "EAST END OF PARKING LOT 1 FOOT FROM SIDEWALK. 160 FEET SOUTHWEST FROM BUILDING NEAR ALGONQUIN ROAD.",
+    "lat": 42.0525,
+    "lng": -87.99501,
+    "serial": "5156284"
+  },
+  {
+    "street_num": "990",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD UT",
+    "business": "ST ANDREWS PROPERTY INC. NORTHWEST PIT 60 W ENDPOINTS",
+    "description": "ACROSS FROM 1602 NORTH KENNICOTT  35 FEET EAST OF KENNICOTT CURB LOCATED IN GRASS",
+    "lat": 42.05522,
+    "lng": -87.99566,
+    "serial": "D5156283"
+  },
+  {
+    "street_num": "1000",
+    "street_dir": "W",
+    "street": "ALGONQUIN RD UT",
+    "business": "ST ANDREWS PROPERTY INC. LOWES PIT 60 W ENDPOINTS",
+    "description": "SOUTHWEST CORNER OF LOWES BUILDING 2 MANHOLES",
+    "lat": 42.05437,
+    "lng": -87.99646,
+    "serial": "00509300"
+  },
+  {
+    "street_num": "1508",
+    "street_dir": "E",
+    "street": "ARBOR LN UT",
+    "business": "TOWNHOMES",
+    "description": "",
+    "lat": 42.10986,
+    "lng": -87.96411,
+    "serial": "13911882"
+  },
+  {
+    "street_num": "1200",
+    "street_dir": "N",
+    "street": "ARLINGTON HEIGHTS RD",
+    "business": "REHABILITATION HOME",
+    "description": "NEAR ARLINGTON HEIGHTS ROAD IN GRASS",
+    "lat": 42.09782,
+    "lng": -87.98059,
+    "serial": "14495165"
+  },
+  {
+    "street_num": "1625",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD",
+    "business": "AUTUMN LEAVES",
+    "description": "SW CORNER OF PROPERTY",
+    "lat": 42.05425,
+    "lng": -8798134.0,
+    "serial": "14356220"
+  },
+  {
+    "street_num": "1912",
+    "street_dir": "N",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "SELIS RESTAURANT/PALM COURT 60W ERTS",
+    "description": "",
+    "lat": 42.11066,
+    "lng": -87.98065,
+    "serial": "DD6027499"
+  },
+  {
+    "street_num": "3385",
+    "street_dir": "N",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "ARLINGTON ATRIUM LLC PIT 2 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.13583,
+    "lng": -87.98306,
+    "serial": "7003759"
+  },
+  {
+    "street_num": "3385",
+    "street_dir": "N",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "ARLINGTON ATRIUM LLC PIT 1 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.13645,
+    "lng": -87.98392,
+    "serial": "D7003671"
+  },
+  {
+    "street_num": "4212",
+    "street_dir": "N",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "TERRAMERE PLAZA 60 W ENDPOINTS",
+    "description": "LOCATED NEAR AH ROAD STRIP MALL SIGN. FEEDS MAIN BUILDING ONLY",
+    "lat": 42.15248,
+    "lng": -87.98535,
+    "serial": "D6054313"
+  },
+  {
+    "street_num": "817",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "JOHN GILMORE",
+    "description": "70 FEET NORTH OF DRIVEWAY AT 817 SOUTH ARLINGTON HEIGHTS ROAD.",
+    "lat": 42.06954,
+    "lng": -87.98029,
+    "serial": "98983510"
+  },
+  {
+    "street_num": "823",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "MELVIN KEHE 60 W ENDPOINTS",
+    "description": "823 SOUTH ARLINGTON HEIGHTS ROAD. 10 FEET FROM HYDRANT",
+    "lat": 42.06924,
+    "lng": -87.98026,
+    "serial": "91459556"
+  },
+  {
+    "street_num": "827",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "RESIDENT-FEEDS 827 SOUTH ARLINGTON HTS.",
+    "description": "823 SOUTH ARLINGTON 11 FEET SOUTH OF DRIVEWAY IN SIDEWALK",
+    "lat": 42.06907,
+    "lng": -87.98025,
+    "serial": "06705634"
+  },
+  {
+    "street_num": "1730",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "PARK PLACE CONDOMINIUM",
+    "description": "12 FEET SOUTH OF ENTRANCE 12 FEET WEST OF ARLINGTON HEIGHTS ROAD.",
+    "lat": 42.05339,
+    "lng": -87.982,
+    "serial": "7063172"
+  },
+  {
+    "street_num": "1850",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "OSCO DRUG",
+    "description": "22 NORTHWEST OF JEWEL SIGN. 18 FEET SOUTHWEST OF HYDRANT",
+    "lat": 42.05227,
+    "lng": -87.98218,
+    "serial": "9708626"
+  },
+  {
+    "street_num": "1860",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "JEWEL FOOD STORE",
+    "description": "140 FEET WEST OF JEWEL SIGN 5 FEET NORTH OF SIDEWALK ON GOLF",
+    "lat": 42.05156,
+    "lng": -87.98437,
+    "serial": "9708826"
+  },
+  {
+    "street_num": "2015",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "BRIAN PROPERTIES PIT 2",
+    "description": "11 FEET EAST OF ARLINGTON HEIGHTS ROAD 3 FEET SOUTH OF ENTRANCE",
+    "lat": 42.04823,
+    "lng": -87.98212,
+    "serial": "6034289"
+  },
+  {
+    "street_num": "2015",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "BRIAN PROPERTIES PIT 1",
+    "description": "SEEGERS ENTRANCE 24 FEET FROM SEEGERS WEST SIDE OF ENTRANCE",
+    "lat": 42.04929,
+    "lng": -87.98117,
+    "serial": "6034288"
+  },
+  {
+    "street_num": "2101",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "ARLINGTON ASSOCIATES",
+    "description": "8 FEET NORTHWEST OF BUILDING",
+    "lat": 42.04753,
+    "lng": -87.982,
+    "serial": "7108882"
+  },
+  {
+    "street_num": "2120",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "HOLIDAY INN EXPRESS",
+    "description": "NORTH EAST CORNER OF BUILDING",
+    "lat": 42.04658,
+    "lng": -87.98292,
+    "serial": "7123301"
+  },
+  {
+    "street_num": "2340",
+    "street_dir": "S",
+    "street": "ARLINGTON HEIGHTS RD.",
+    "business": "MITROFF COMPANIES",
+    "description": "108 FEET SOUTH OF ALGONQUIN.  5 FEET WEST OF DENNY'S ENTRANCE.",
+    "lat": 42.04428,
+    "lng": -87.98468,
+    "serial": "5541499"
+  },
+  {
+    "street_num": "1630",
+    "street_dir": "E",
+    "street": "AVON CT.",
+    "business": "ARLINGTON ON THE PONDS-NORTH 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.10687,
+    "lng": -87.96231,
+    "serial": "7203879"
+  },
+  {
+    "street_num": "450",
+    "street_dir": "S",
+    "street": "BANBURY RD",
+    "business": "LAWN METER ACTUAL ADDRESS 450 EAST PARK",
+    "description": "IRRIGATION METER IN PIT FRONT LAWN",
+    "lat": 42.07555,
+    "lng": -87.9759,
+    "serial": "05917920"
+  },
+  {
+    "street_num": "2622",
+    "street_dir": "E",
+    "street": "BEL-AIRE DR.",
+    "business": "W.L. SEYMORE 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.08258,
+    "lng": -87.95058,
+    "serial": "07912644"
+  },
+  {
+    "street_num": "760",
+    "street_dir": "S",
+    "street": "BELMONT AV UT",
+    "business": "KROSS",
+    "description": "ACTUAL LOCATION 817 SOUTH ARLINGTON HEIGHTS ROAD",
+    "lat": 42.06954,
+    "lng": -87.98029,
+    "serial": "D98269146"
+  },
+  {
+    "street_num": "768",
+    "street_dir": "S",
+    "street": "BELMONT AV UT",
+    "business": "FEEDS 768 SOUTH BELMONT",
+    "description": "FEEDS 768 SOUTH BELMONT AVE.                             823 SOUTH ARLINGTON 11 FEET SOUTH OF DRIVEWAY IN SIDEWALK",
+    "lat": 42.06907,
+    "lng": -87.98025,
+    "serial": "05914913"
+  },
+  {
+    "street_num": "834",
+    "street_dir": "S",
+    "street": "BELMONT AV UT",
+    "business": "OCCUPANT 60 W ENDPOINTS",
+    "description": "LOCATED IN SAME PIT AS 210 EAST ORCHARD",
+    "lat": 42.06877,
+    "lng": -87.98026,
+    "serial": "06705645"
+  },
+  {
+    "street_num": "1625",
+    "street_dir": "N",
+    "street": "BELMONT AV.",
+    "business": "COURTYARDS OF ARLINGTON PIT 1 60 W ENDPOINTS",
+    "description": "WEST PIT NEAR 1689 NORTH BELMONT",
+    "lat": 42.10647,
+    "lng": -87.97787,
+    "serial": "7116919"
+  },
+  {
+    "street_num": "1625",
+    "street_dir": "N",
+    "street": "BELMONT CT",
+    "business": "COURTYARDS OF ARLINGTON PIT 2 60 W ENDPOINTS",
+    "description": "EAST PIT NEAR DOUGLAS ENTRANCE",
+    "lat": 42.10643,
+    "lng": -87.97782,
+    "serial": "7091534"
+  },
+  {
+    "street_num": "1",
+    "street_dir": "N",
+    "street": "BEVERLY LN UT",
+    "business": "ARLINGTON CROSSING",
+    "description": "ARLINGTON  CROSSING",
+    "lat": 42.08179,
+    "lng": -87.973,
+    "serial": "10908912"
+  },
+  {
+    "street_num": "4165",
+    "street_dir": "N",
+    "street": "BLOOMINGTON AV.",
+    "business": "ARBOR LAKES PIT 2 60 W ENDPOINTS",
+    "description": "PIT 2",
+    "lat": 42.15116,
+    "lng": -88.00468,
+    "serial": "7135663"
+  },
+  {
+    "street_num": "4233",
+    "street_dir": "N",
+    "street": "BLOOMINGTON AV.",
+    "business": "ARBOR LAKES PIT 1 60 W ENDPOINTS",
+    "description": "PIT 1",
+    "lat": 42.15346,
+    "lng": -88.00467,
+    "serial": "7135665"
+  },
+  {
+    "street_num": "99",
+    "street_dir": "W",
+    "street": "CAMPBELL ST",
+    "business": "VAIL PARK 60 W ENDPOINTS",
+    "description": "VAIL AND CAMPBELL",
+    "lat": 42.08232,
+    "lng": -87.98397,
+    "serial": "00715689"
+  },
+  {
+    "street_num": "1601",
+    "street_dir": "W",
+    "street": "CAMPBELL ST.",
+    "business": "ESSENSE OF EUROPE",
+    "description": "D/C METER  WEST END OF BUILDING 11 FEET FROM SIDEWALK IN DRIVEWAY.",
+    "lat": 42.08159,
+    "lng": -88.0046,
+    "serial": "7070969"
+  },
+  {
+    "street_num": "530",
+    "street_dir": "W",
+    "street": "CAMPUS DR.",
+    "business": "ARLINGTON COMMONS 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.13532,
+    "lng": -87.99134,
+    "serial": "5470783"
+  },
+  {
+    "street_num": "811",
+    "street_dir": "E",
+    "street": "CENTRAL RD.",
+    "business": "THE MOORINGS PIT 1",
+    "description": "",
+    "lat": 42.06638,
+    "lng": -87.97439,
+    "serial": "7123292"
+  },
+  {
+    "street_num": "811",
+    "street_dir": "E",
+    "street": "CENTRAL RD.",
+    "business": "THE MOORINGS  PIT 2",
+    "description": "",
+    "lat": 42.06304,
+    "lng": -87.97485,
+    "serial": "7123293"
+  },
+  {
+    "street_num": "1351",
+    "street_dir": "E",
+    "street": "CENTRAL RD.",
+    "business": "CROWN POINT VILLAS TNHM ASSC.",
+    "description": "",
+    "lat": 42.06619,
+    "lng": -87.96648,
+    "serial": "9701868"
+  },
+  {
+    "street_num": "1551",
+    "street_dir": "E",
+    "street": "CENTRAL RD.",
+    "business": "CENTRAL PARK EAST APTS. PIT 2",
+    "description": "",
+    "lat": 42.06624,
+    "lng": -87.96206,
+    "serial": "7123298"
+  },
+  {
+    "street_num": "1551",
+    "street_dir": "E",
+    "street": "CENTRAL RD.",
+    "business": "CENTRAL PARK EAST APTS. PIT 1",
+    "description": "",
+    "lat": 42.06632,
+    "lng": -87.96585,
+    "serial": "7123307"
+  },
+  {
+    "street_num": "800",
+    "street_dir": "W",
+    "street": "CENTRAL RD.",
+    "business": "NW COMMUNITY HOSPITAL HAS REMOTES PIT ON KIRCHOFF SIDE 60 W ENDPOINTS",
+    "description": "PIT NEAR KIRCHOFF ROAD NORTH OF HOSPITAL",
+    "lat": 42.07025,
+    "lng": -87.99363,
+    "serial": "5223977"
+  },
+  {
+    "street_num": "800",
+    "street_dir": "W",
+    "street": "CENTRAL RD.",
+    "business": "NW COMMUNITY HOSPITAL HAS REMOTES 60 W ENDPOINTS",
+    "description": "PIT LOCATED NW CORNER OF CENTRAL AND FERNANDEZ",
+    "lat": 42.06677,
+    "lng": -87.9915,
+    "serial": "5223978"
+  },
+  {
+    "street_num": "900",
+    "street_dir": "W",
+    "street": "CENTRAL RD.",
+    "business": "NW COMMUNITY HOSPITAL  WELLNESS CENTER HAS REMOTES 60 W ENDPOINTS",
+    "description": "WELLNESS CENTER PIT NEAR CENTRAL ROAD SE CORNER OF BUILDING",
+    "lat": 42.06681,
+    "lng": -87.99435,
+    "serial": "9503793"
+  },
+  {
+    "street_num": "1515",
+    "street_dir": "W",
+    "street": "CENTRAL RD.",
+    "business": "HEADQUARTERS 88TH RSC",
+    "description": "",
+    "lat": 42.06642,
+    "lng": -87.99805,
+    "serial": "9404796"
+  },
+  {
+    "street_num": "1700",
+    "street_dir": "W",
+    "street": "CENTRAL RD.",
+    "business": "TRANCEL CORP.",
+    "description": "",
+    "lat": 42.06682,
+    "lng": -88.00351,
+    "serial": "7194352"
+  },
+  {
+    "street_num": "2052",
+    "street_dir": "N",
+    "street": "CHARTER POINT DR",
+    "business": "LAKE ARLINGTON TOWNE PIT 4 50 W ENDPOINTS",
+    "description": "ACTUAL LOCATION 2060 NORTH CHARTER POINT DR",
+    "lat": 42.11293,
+    "lng": -87.95013,
+    "serial": "D7123265"
+  },
+  {
+    "street_num": "2052",
+    "street_dir": "N",
+    "street": "CHARTER POINT DR",
+    "business": "LAKE ARLINGTON TOWNE PIT 5 60 W ENDPOINTS",
+    "description": "ACTUAL LOCATION 2050 COLD SPRINGS RD",
+    "lat": 42.11251,
+    "lng": -87.94792,
+    "serial": "D7155390"
+  },
+  {
+    "street_num": "2301",
+    "street_dir": "N",
+    "street": "CHESTNUT AV",
+    "business": "FEEDS 2300 COM ED RIGHT OF WAY BUILDING 60 W ENDPOINTS",
+    "description": "ACTUAL LOCATION 2301 NORTH CHESTNUT AVE. 40 FEET FROM ROAD",
+    "lat": 42.11847,
+    "lng": -87.98523,
+    "serial": "0618324"
+  },
+  {
+    "street_num": "2636",
+    "street_dir": "E",
+    "street": "CLEARBROOK DR",
+    "business": "BOYER ROSENE  50W ERTS",
+    "description": "IN PARKWAY",
+    "lat": 42.03751,
+    "lng": -87.9747,
+    "serial": "7121291"
+  },
+  {
+    "street_num": "151",
+    "street_dir": "E",
+    "street": "COUNTRY LN UT",
+    "business": "LEXINGTON HERITAGE TOWN HOMES",
+    "description": "PIT ONE OF TWO",
+    "lat": 42.13556,
+    "lng": -87.98087,
+    "serial": "G17296787"
+  },
+  {
+    "street_num": "1652",
+    "street_dir": "N",
+    "street": "COURTLAND DR.",
+    "business": "ARLINGTON ON THE PONDS-SOUTH 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.1067,
+    "lng": -87.9623,
+    "serial": "7194500"
+  },
+  {
+    "street_num": "2210",
+    "street_dir": "S",
+    "street": "CRAMBOURNE WAY",
+    "business": "SOUTH PIT ARLINGTON RESERVE 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.04614,
+    "lng": -87.98602,
+    "serial": "702319"
+  },
+  {
+    "street_num": "3100",
+    "street_dir": "N",
+    "street": "DANIELS CT",
+    "business": "TOWNHOMES OF FRENCHMANS COVE PIT 2 60 W ENDPOINTS",
+    "description": "PIT 2 SOUTH",
+    "lat": 42.1326,
+    "lng": -87.97266,
+    "serial": "7123297"
+  },
+  {
+    "street_num": "3215",
+    "street_dir": "N",
+    "street": "DANIELS CT",
+    "business": "TOWNHOMES OF FRENCHMANS COVE PIT 1 60 W ENDPOINTS",
+    "description": "ACTUAL LOCATION 3249 DANIELS CT. PIT 1 NORTH",
+    "lat": 42.13461,
+    "lng": -87.97307,
+    "serial": "7114463"
+  },
+  {
+    "street_num": "1442",
+    "street_dir": "E",
+    "street": "DAVIS ST UT",
+    "business": "ARLINGTON HEIGHTS PARK DISTRICT",
+    "description": "SQUARE LID 21 FEET SOUTH OF DAVIS.  IN FRONT OF BUILDING.",
+    "lat": 42.07488,
+    "lng": -87.96375,
+    "serial": "5363153"
+  },
+  {
+    "street_num": "1420",
+    "street_dir": "E",
+    "street": "DAVIS ST.",
+    "business": "TOWER PLASTICS DC METER",
+    "description": "",
+    "lat": 42.0753,
+    "lng": -87.96473,
+    "serial": "36577591"
+  },
+  {
+    "street_num": "1440",
+    "street_dir": "E",
+    "street": "DAVIS ST.",
+    "business": "ARLINGTON HEIGHTS PARK DISTRICT ABANDONED",
+    "description": "SMALL PIT IN DRIVE. 222 FEET SOUTH OF DAVIS 44 FEET EAST OF THE 1436 BUILDING.",
+    "lat": 42.075,
+    "lng": -87.96396,
+    "serial": "10894112"
+  },
+  {
+    "street_num": "1440",
+    "street_dir": "E",
+    "street": "DAVIS ST.",
+    "business": "ARLINGTON HEIGHTS PARK DISTRICT ABANDONED",
+    "description": "SQUARE LID NORTH EAST CORNER OF 1430 E. DAVIS. ABANDONED 4 FEET FROM DRIVEWAY NEXT TO FIRE STACK",
+    "lat": 42.07421,
+    "lng": -87.96397,
+    "serial": "90258797"
+  },
+  {
+    "street_num": "2",
+    "street_dir": "N",
+    "street": "DRYDEN AV UT",
+    "business": "ARLINGTON CROSSING",
+    "description": "ARLINGTON CROSSING",
+    "lat": 42.08178,
+    "lng": -87.97098,
+    "serial": "10908913"
+  },
+  {
+    "street_num": "15",
+    "street_dir": "E",
+    "street": "DUNDEE RD",
+    "business": "MC DONALDS",
+    "description": "",
+    "lat": 42.13889,
+    "lng": -87.9814,
+    "serial": "14390545"
+  },
+  {
+    "street_num": "910",
+    "street_dir": "W",
+    "street": "DUNDEE RD",
+    "business": "RIDGE PLAZA PIT 3 NORTHEAST 60 W ENDPOINTS",
+    "description": "PIT 3 NORTHEAST",
+    "lat": 42.14143,
+    "lng": -87.99133,
+    "serial": "DD0108282"
+  },
+  {
+    "street_num": "910",
+    "street_dir": "W",
+    "street": "DUNDEE RD",
+    "business": "RIDGE PLAZA PIT 2 NORTHWEST 60 W ENDPOINTS",
+    "description": "PIT 2 NORTHWEST",
+    "lat": 42.14158,
+    "lng": -87.99458,
+    "serial": "D7135642"
+  },
+  {
+    "street_num": "910",
+    "street_dir": "W",
+    "street": "DUNDEE RD",
+    "business": "RIDGE PLAZA PIT 1 SOUTHEAST 60 W ENDPOINTS",
+    "description": "PIT 1 SOUTHEAST",
+    "lat": 42.13956,
+    "lng": -87.99152,
+    "serial": "D7135664"
+  },
+  {
+    "street_num": "1100",
+    "street_dir": "W",
+    "street": "DUNDEE RD",
+    "business": "NISSAN CAR DEALER",
+    "description": "PIT LOCATED 50 YARDS NORTH EAST OF BUILDING",
+    "lat": 42.14061,
+    "lng": -87.99574,
+    "serial": "0617994"
+  },
+  {
+    "street_num": "1510",
+    "street_dir": "W",
+    "street": "DUNDEE RD",
+    "business": "BOB RORHMAN AUTO MALL",
+    "description": "NEAR STOP LIGHT ON WILKE ROAD.",
+    "lat": 42.14089,
+    "lng": -88.00281,
+    "serial": "00810231"
+  },
+  {
+    "street_num": "1520",
+    "street_dir": "W",
+    "street": "DUNDEE RD",
+    "business": "BOB ROHRMAN AUTO GROUP",
+    "description": "NEAR STOP LIGHT ON WILKE ROAD",
+    "lat": 42.1409,
+    "lng": -88.00281,
+    "serial": "00601072"
+  },
+  {
+    "street_num": "1530",
+    "street_dir": "W",
+    "street": "DUNDEE RD",
+    "business": "ROHRMAN AUTO GROUP",
+    "description": "IN PARKING LOT",
+    "lat": 42.14203,
+    "lng": -88.00387,
+    "serial": "NO METER"
+  },
+  {
+    "street_num": "1155",
+    "street_dir": "W",
+    "street": "DUNDEE RD.",
+    "business": "NORTH ARLINGTON ATRIUM SOUTH PIT 2 60W ERTS",
+    "description": "PIT 2 SOUTH",
+    "lat": 42.13714,
+    "lng": -87.99705,
+    "serial": "6057918"
+  },
+  {
+    "street_num": "1155",
+    "street_dir": "W",
+    "street": "DUNDEE RD.",
+    "business": "NORTH ARLINGTON ATRIUM NORTH PIT 1 60W ERTS",
+    "description": "PIT 1 NORTH",
+    "lat": 42.13882,
+    "lng": -87.99707,
+    "serial": "6043425"
+  },
+  {
+    "street_num": "1331",
+    "street_dir": "W",
+    "street": "DUNDEE RD.",
+    "business": "JAMESONS CHAR HOUSE 60 W ERTS",
+    "description": "",
+    "lat": 42.13873,
+    "lng": -87.9984,
+    "serial": "7012564"
+  },
+  {
+    "street_num": "1415",
+    "street_dir": "W",
+    "street": "DUNDEE RD.",
+    "business": "LA QUINTA HOTEL 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.13882,
+    "lng": -87.99936,
+    "serial": "72366416"
+  },
+  {
+    "street_num": "700",
+    "street_dir": "S",
+    "street": "DWYER AV",
+    "business": "PARK DISTRICT BALL FIELD",
+    "description": "20 FEET EAST OF RPZ HOTBOX",
+    "lat": 42.0717,
+    "lng": -87.99899,
+    "serial": "90044949"
+  },
+  {
+    "street_num": "500",
+    "street_dir": "S",
+    "street": "DWYER AV.",
+    "business": "WESTGATE SCHOOL DIST 25",
+    "description": "",
+    "lat": 42.07738,
+    "lng": -87.99896,
+    "serial": "9406152"
+  },
+  {
+    "street_num": "979",
+    "street_dir": "W",
+    "street": "ESSEX PL UT",
+    "business": "PIT TWO ESSEX PLACE WEST 60 W ENDPOINTS",
+    "description": "WEST PIT ROUND SMALL LID ACTUAL LOCATION 955 WEST ESSEX UT",
+    "lat": 42.12405,
+    "lng": -87.99429,
+    "serial": "D7123309"
+  },
+  {
+    "street_num": "979",
+    "street_dir": "W",
+    "street": "ESSEX PL UT",
+    "business": "PIT ONE ESSEX PLACE EAST 60 W ENDPOINTS",
+    "description": "EAST PIT ROUND SMALL LID",
+    "lat": 42.12391,
+    "lng": -87.99295,
+    "serial": "D7123294"
+  },
+  {
+    "street_num": "2980",
+    "street_dir": "W",
+    "street": "EUCLID AV UT",
+    "business": "ESPLANADE STRIP MALL",
+    "description": "LOCATED NEAR SALT CREEK LANE",
+    "lat": 42.08932,
+    "lng": -88.02045,
+    "serial": "00809823"
+  },
+  {
+    "street_num": "1212",
+    "street_dir": "E",
+    "street": "EUCLID AV.",
+    "business": "BROTHER DODD'S",
+    "description": "",
+    "lat": 42.0884,
+    "lng": -87.96774,
+    "serial": "6092580"
+  },
+  {
+    "street_num": "2501",
+    "street_dir": "E",
+    "street": "EUCLID AV.",
+    "business": "MEMORY GARDENS",
+    "description": "",
+    "lat": 42.08793,
+    "lng": -87.94985,
+    "serial": "D7194441"
+  },
+  {
+    "street_num": "2000",
+    "street_dir": "W",
+    "street": "EUCLID AV.",
+    "business": "ARLINGTON PARK O.T.B. 100 W ENDPOINTS",
+    "description": "IN FRONT OF 2000 WEST EUCLID  4 FEET WEST OF ENTRANCE 19 FEET FROM EUCLID.",
+    "lat": 42.08848,
+    "lng": -88.00714,
+    "serial": "DD7123283"
+  },
+  {
+    "street_num": "315",
+    "street_dir": "N",
+    "street": "EVERGREEN AV.",
+    "business": "NORTH SCHOOL PARK 60 W ENDPOINTS",
+    "description": "100 FEET WEST OF FOUNTAIN",
+    "lat": 42.08604,
+    "lng": -87.98158,
+    "serial": "7222836"
+  },
+  {
+    "street_num": "2120",
+    "street_dir": "S",
+    "street": "GOEBBERT RD.",
+    "business": "TVO TANGLEWOOD LLC PIT 2",
+    "description": "27 FEET EAST OF TONNE NEAR 2175 TONNE",
+    "lat": 42.04624,
+    "lng": -87.97958,
+    "serial": "5124605"
+  },
+  {
+    "street_num": "2120",
+    "street_dir": "S",
+    "street": "GOEBBERT RD.",
+    "business": "TVO TANGLEWOOD LLC  PIT 1",
+    "description": "CENTER OF MAIN ENTRANCE 3 FEET FROM SIDE WALK BY VALVE INDICATOR",
+    "lat": 42.04734,
+    "lng": -87.97503,
+    "serial": "5088883"
+  },
+  {
+    "street_num": "2121",
+    "street_dir": "S",
+    "street": "GOEBBERT RD.",
+    "business": "FOREST VIEW ADMINISTRATION  CENTER IN BACK",
+    "description": "BETWEEN BUILDING AND TENNIS COURTS  26 FEET FROM BUILDING 13 FEET FROM FENCE       NEED KEY",
+    "lat": 42.0451,
+    "lng": -87.97391,
+    "serial": "6054576"
+  },
+  {
+    "street_num": "2414",
+    "street_dir": "S",
+    "street": "GOEBBERT RD.",
+    "business": "AHSTON APARTMENTS",
+    "description": "ON FALCON DRIVE 23 FEET SOUTH OF WEST ENTRANCE  14 FEET FROM BUILDING",
+    "lat": 42.04398,
+    "lng": -87.97898,
+    "serial": "7135631"
+  },
+  {
+    "street_num": "2414",
+    "street_dir": "S",
+    "street": "GOEBBERT RD.",
+    "business": "AHSTON APARTMENTS",
+    "description": "NORTH ENTRANCE 2ND PARKING SPOT 22 FEET FROM BUILDING 34 FEET FROM GOEBBERT CURB. IN FRONT OF 2396 SOUTH GOEBBERT.",
+    "lat": 42.04313,
+    "lng": -87.97513,
+    "serial": "7147637"
+  },
+  {
+    "street_num": "5",
+    "street_dir": "E",
+    "street": "GOLF RD.",
+    "business": "STAFFORD PLACE",
+    "description": "",
+    "lat": 42.05116,
+    "lng": -87.98077,
+    "serial": "D7155362"
+  },
+  {
+    "street_num": "26",
+    "street_dir": "E",
+    "street": "GOLF RD.",
+    "business": "INTERNATIONAL PLAZA WEST PIT",
+    "description": "BEHIND 148 EAST GOLF 10 FEET EAST OF GOLF RD.",
+    "lat": 42.05223,
+    "lng": -87.97977,
+    "serial": "7194439"
+  },
+  {
+    "street_num": "140",
+    "street_dir": "E",
+    "street": "GOLF RD.",
+    "business": "INTERNATIONAL PLAZA EAST PIT",
+    "description": "NE CORNER OF PROPERTY BEHIND BUILDING 25 FEET FROM CURB.",
+    "lat": 42.0537,
+    "lng": -87.97739,
+    "serial": "7194497"
+  },
+  {
+    "street_num": "606",
+    "street_dir": "E",
+    "street": "GOLF RD.",
+    "business": "AFFILIATED REALTY   STRIP MALL 600-606",
+    "description": "EAST SIDE OF BUILDING 6 FEET SOUTH OF BUILDING",
+    "lat": 42.05195,
+    "lng": -87.97308,
+    "serial": "7108814"
+  },
+  {
+    "street_num": "700",
+    "street_dir": "E",
+    "street": "GOLF RD.",
+    "business": "LINDEN PLACE WEST PIT",
+    "description": "17 FEET FROM CURB BEFORE COMPLEX ENTRANCE EAST SIDE",
+    "lat": 42.05232,
+    "lng": -87.97476,
+    "serial": "7045887"
+  },
+  {
+    "street_num": "730",
+    "street_dir": "E",
+    "street": "GOLF RD.",
+    "business": "LINDEN PLACE EAST PIT",
+    "description": "EAST END OF PARKING LOT 15 FEET FROM CURB NEAR TRANSFORMER",
+    "lat": 42.05229,
+    "lng": -87.97298,
+    "serial": "7003664"
+  },
+  {
+    "street_num": "903",
+    "street_dir": "E",
+    "street": "GOLF RD.",
+    "business": "THE MANSIONS SOUTH PIT 2",
+    "description": "ACROSS FROM 925 BUILDING IN PARKING ISLAND SALVATORE DIMUCCI & COMPANY",
+    "lat": 42.04918,
+    "lng": -87.9728,
+    "serial": "6092152"
+  },
+  {
+    "street_num": "903",
+    "street_dir": "E",
+    "street": "GOLF RD.",
+    "business": "THE MANSIONS NORTH PIT 1 60 W ENDPOINTS",
+    "description": "MEIER AND GOLF",
+    "lat": 42.05035,
+    "lng": -87.97046,
+    "serial": "7131077"
+  },
+  {
+    "street_num": "9",
+    "street_dir": "W",
+    "street": "GOLF RD.",
+    "business": "ARLINGTON TOWN SQUARE",
+    "description": "WEST ENTRANCE 1 FOOT EAST OF DRIVE. LOOPED WITH METER ABOVE GROUND 13 FEET SOUTH OF GOLF RD. STRIP MALL. NORTHWEST CORNER OF BUILDING",
+    "lat": 42.05124,
+    "lng": -87.98492,
+    "serial": "7155387"
+  },
+  {
+    "street_num": "401",
+    "street_dir": "W",
+    "street": "GOLF RD.",
+    "business": "SCIENTIFIC ANIMAL FEEDS",
+    "description": "57 FEET WEST OF STORE 90 FEET NORTH OF WAREHOUSE",
+    "lat": 42.05055,
+    "lng": -87.98608,
+    "serial": "8020687"
+  },
+  {
+    "street_num": "415",
+    "street_dir": "W",
+    "street": "GOLF RD.",
+    "business": "TRANSCON BUILDERS",
+    "description": "EAST ENTRANCE 7 FEET WEST OF DRIVE. 45 FEET SOUTH OF GOLF ROAD.",
+    "lat": 42.0512,
+    "lng": -87.98705,
+    "serial": "5490910"
+  },
+  {
+    "street_num": "501",
+    "street_dir": "W",
+    "street": "GOLF RD.",
+    "business": "ARLINGTON CENTER",
+    "description": "EAST ENTRANCE 7 FEET EAST OF DRIVE. 45 FEET SOUTH  OF GOLF. NORTH  OF 415 WEST GOLF.",
+    "lat": 42.0512,
+    "lng": -87.98753,
+    "serial": "5398256"
+  },
+  {
+    "street_num": "601",
+    "street_dir": "W",
+    "street": "HAPPFIELD DR",
+    "business": "WATERFORD PLACE PIT 1 60 W ENDPOINTS",
+    "description": "SW CORNER OF RIDGE AND HAPPFIELD",
+    "lat": 42.14313,
+    "lng": -87.99055,
+    "serial": "7194499"
+  },
+  {
+    "street_num": "639",
+    "street_dir": "W",
+    "street": "HAPPFIELD DR",
+    "business": "WATERFORD PLACE PIT 2 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.14208,
+    "lng": -87.99074,
+    "serial": "7194496"
+  },
+  {
+    "street_num": "940",
+    "street_dir": "W",
+    "street": "HAPPFIELD DR",
+    "business": "WESTRIDGE CONDO PIT 1 60 W ENDPOINTS",
+    "description": "NW CORNER OF HAPPFIELD AND KENNICOTT SQUARE LID",
+    "lat": 42.14337,
+    "lng": -87.99102,
+    "serial": "D7194484"
+  },
+  {
+    "street_num": "960",
+    "street_dir": "W",
+    "street": "HAPPFIELD DR",
+    "business": "WESTRIDGE CONDO PIT 2 60 W ENDPOINTS",
+    "description": "NE CORNER OF HAPPFIELD AND KENNICOTT SQUARE LID",
+    "lat": 42.14337,
+    "lng": -87.99455,
+    "serial": "D7123314"
+  },
+  {
+    "street_num": "843",
+    "street_dir": "W",
+    "street": "HAPPFIELD DR UT001",
+    "business": "WESTRIDGE CONDO IV PIT 1 SOUTH EAST 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.14187,
+    "lng": -87.99125,
+    "serial": "7123223"
+  },
+  {
+    "street_num": "843",
+    "street_dir": "W",
+    "street": "HAPPFIELD DR UT002",
+    "business": "WESTRIDGE CONDO IV  PIT 2 NORTH WEST 60 W ENDPOINTS",
+    "description": "SE CORNER OF HAPPFIELD AND KENNICOTT",
+    "lat": 42.14312,
+    "lng": -87.99453,
+    "serial": "D8017219"
+  },
+  {
+    "street_num": "177",
+    "street_dir": "N",
+    "street": "HICKORY AV",
+    "business": "HICKORY ROW HOMES 60 W ERTS",
+    "description": "SOUTHWEST CORNER OF PROPERTY",
+    "lat": 42.08456,
+    "lng": -87.97431,
+    "serial": "00703862"
+  },
+  {
+    "street_num": "1927",
+    "street_dir": "N",
+    "street": "HIGHLAND AV",
+    "business": "ENCLAVES PIT 2 WEST  100 W ERTS",
+    "description": "CORNER OF WHEELER AND HIGHLAND",
+    "lat": 42.1117,
+    "lng": -87.98579,
+    "serial": "D7236402"
+  },
+  {
+    "street_num": "400",
+    "street_dir": "S",
+    "street": "HIGHLAND AV.",
+    "business": "SOUTH JR. HIGH SCHOOL DISTRICT 25",
+    "description": "OFF SOUTH STREET 7 FEET NORTH OF SIDEWALK IN PARKING LOT",
+    "lat": 42.07817,
+    "lng": -87.98573,
+    "serial": "09601643"
+  },
+  {
+    "street_num": "1600",
+    "street_dir": "E",
+    "street": "HINTZ RD.",
+    "business": "ASPEN PLACE PIT 2 EAST 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.12477,
+    "lng": -87.96383,
+    "serial": "D9609714"
+  },
+  {
+    "street_num": "1600",
+    "street_dir": "E",
+    "street": "HINTZ RD.",
+    "business": "ASPEN PLACE PIT 1 WEST 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.12464,
+    "lng": -87.9626,
+    "serial": "D9609841"
+  },
+  {
+    "street_num": "2575",
+    "street_dir": "E",
+    "street": "HUNTER DR",
+    "business": "LAKE ARLINGTON TOWNE PIT 8 50W-2",
+    "description": "ACTUAL LOCATION 2034 COLD SPRING RD",
+    "lat": 42.11218,
+    "lng": -87.94883,
+    "serial": "D7200186"
+  },
+  {
+    "street_num": "2575",
+    "street_dir": "E",
+    "street": "HUNTER DR",
+    "business": "LAKE ARLINGTON TOWNE PIT 6 60 W ENDPOINTS",
+    "description": "ACTUAL LOCATION 2452 EAST HUNTER DR",
+    "lat": 42.11068,
+    "lng": -87.95306,
+    "serial": "D7200190"
+  },
+  {
+    "street_num": "2575",
+    "street_dir": "E",
+    "street": "HUNTER DR",
+    "business": "LAKE ARLINGTON TOWNE PIT 7 60 W ENDPOINTS",
+    "description": "ACTUAL LOCATION 2027 CHARTER POINT DR",
+    "lat": 42.11245,
+    "lng": -87.95019,
+    "serial": "DD7200191"
+  },
+  {
+    "street_num": "208",
+    "street_dir": "W",
+    "street": "HYDE ST",
+    "business": "NORTH PIT ARLINGTON RESERVE 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.04736,
+    "lng": -87.98631,
+    "serial": "703667"
+  },
+  {
+    "street_num": "2300",
+    "street_dir": "N",
+    "street": "JUNIPER LN",
+    "business": "ARLINGTON GROVE EAST PIT 2 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.11375,
+    "lng": -87.9873,
+    "serial": "D7123296"
+  },
+  {
+    "street_num": "2300",
+    "street_dir": "N",
+    "street": "JUNIPER LN",
+    "business": "ARLINGTON GROVE WEST PIT 1 60 W ENDPOINTS",
+    "description": "CHESTNUT AND JUNIPER",
+    "lat": 42.11271,
+    "lng": -87.98583,
+    "serial": "D7123290"
+  },
+  {
+    "street_num": "1504",
+    "street_dir": "N",
+    "street": "KENDAL CT.",
+    "business": "ARLINGTON ON THE PONDS 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.10288,
+    "lng": -87.96334,
+    "serial": "7182440"
+  },
+  {
+    "street_num": "1250",
+    "street_dir": "N",
+    "street": "KENNICOTT AV.",
+    "business": "PAM STOCKING MEMORIAL 60 W ENDPOINTS",
+    "description": "WATLING AND KENNICOTT UNDER SHERWOOD SIGN",
+    "lat": 42.09977,
+    "lng": -87.99522,
+    "serial": "96329514"
+  },
+  {
+    "street_num": "3401",
+    "street_dir": "N",
+    "street": "KENNICOTT AV.",
+    "business": "ARLINGTON HEIGHTS OFFICE CENTER 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.1372,
+    "lng": -87.99584,
+    "serial": "5882965"
+  },
+  {
+    "street_num": "909",
+    "street_dir": "W",
+    "street": "KIRCHOFF RD.",
+    "business": "NW COMMUNITY HOSPITAL CONTINUING CARE CENTER   HAS REMOTES 60 W ENDPOINTS",
+    "description": "CONTINUING CARE CENTER PIT NEAR KIRCHOFF NORTH OF BUILDING",
+    "lat": 42.07084,
+    "lng": -87.99516,
+    "serial": "7131054"
+  },
+  {
+    "street_num": "2102",
+    "street_dir": "N",
+    "street": "LAKE SHORE CIRCLE",
+    "business": "LAKE ARLINGTON TOWNE PIT 3 50W-2",
+    "description": "ACTUAL LOCATION 2102 NORTH LAKE SHORE CIRCLE",
+    "lat": 42.1136,
+    "lng": -87.95097,
+    "serial": "D7200172"
+  },
+  {
+    "street_num": "2132",
+    "street_dir": "N",
+    "street": "LAKE SHORE CR",
+    "business": "IRRIGATION METER SUB METER OF PIT LOCATION 84070",
+    "description": "IN METER PIT",
+    "lat": 42.11419,
+    "lng": -87.95145,
+    "serial": "17163755"
+  },
+  {
+    "street_num": "910",
+    "street_dir": "S",
+    "street": "MCKINLEY RD.",
+    "business": "S. LAXGANG",
+    "description": "",
+    "lat": 42.068,
+    "lng": -87.96743,
+    "serial": "5470788"
+  },
+  {
+    "street_num": "1101",
+    "street_dir": "E",
+    "street": "MINER ST.",
+    "business": "MINER SCHOOL DISTRICT 25",
+    "description": "",
+    "lat": 42.0845,
+    "lng": -87.96962,
+    "serial": "89027732"
+  },
+  {
+    "street_num": "300",
+    "street_dir": "W",
+    "street": "MINER ST.",
+    "business": "WEST MINER CONDO ASSOCIATION 60 W ENDPOINTS",
+    "description": "NEXT TO BUILDING NEAR  EXPOSED SHUT OFF VALVE",
+    "lat": 42.08493,
+    "lng": -87.98716,
+    "serial": "5084900"
+  },
+  {
+    "street_num": "300",
+    "street_dir": "W",
+    "street": "MINER ST.",
+    "business": "WEST MINER CONDO ASSOCIATION  PIT 2 NORTHWEST 60 W ENDPOINTS",
+    "description": "SOMERSET AND EASTMAN IN FRONT OF 366 WEST MINER. NEAR EXPOSED SHUT OFF VALVE.",
+    "lat": 42.08555,
+    "lng": -87.98805,
+    "serial": "5145091"
+  },
+  {
+    "street_num": "1306",
+    "street_dir": "S",
+    "street": "NEW WILKE RD.",
+    "business": "SURREY PARK HOMEOWNERS ASSOC. EAST PIT 1 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.06022,
+    "lng": -88.004,
+    "serial": "5478259"
+  },
+  {
+    "street_num": "1306",
+    "street_dir": "S",
+    "street": "NEW WILKE RD.",
+    "business": "SURREY PARK HOMEOWNERS ASSOC. WEST PIT 2 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.05861,
+    "lng": -88.00635,
+    "serial": "5145093"
+  },
+  {
+    "street_num": "1804",
+    "street_dir": "N",
+    "street": "NORMANDY CT.",
+    "business": "ARLINGTON ON THE PONDS-NORTH 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.10864,
+    "lng": -87.96283,
+    "serial": "7194349"
+  },
+  {
+    "street_num": "802",
+    "street_dir": "E",
+    "street": "NORTHWEST HIGHWAY UT001",
+    "business": "MARIANOS SUPERMARKET",
+    "description": "NORTH PIT",
+    "lat": 42.08084,
+    "lng": -87.97201,
+    "serial": "09914808"
+  },
+  {
+    "street_num": "802",
+    "street_dir": "E",
+    "street": "NORTHWEST HIGHWAY UT002",
+    "business": "MARIANOS SUPERMARKET",
+    "description": "SOUTH PIT (NEED LONG LADDER TO ENTER)",
+    "lat": 42.07985,
+    "lng": -87.97203,
+    "serial": "00810229"
+  },
+  {
+    "street_num": "200",
+    "street_dir": "E",
+    "street": "NORTHWEST HWY",
+    "business": "FRIENDSHIP PARK FOUNTAIN 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.0832,
+    "lng": -87.98041,
+    "serial": "16061372"
+  },
+  {
+    "street_num": "1500",
+    "street_dir": "W",
+    "street": "NORTHWEST HWY",
+    "business": "FRONTIER DEVELOPMENT CONDOS 60 W ENDPOINTS",
+    "description": "CORNER OF RACE AND NORTHWEST HWY",
+    "lat": 42.09258,
+    "lng": -88.00175,
+    "serial": "7123401"
+  },
+  {
+    "street_num": "1456",
+    "street_dir": "E",
+    "street": "NORTHWEST HWY UT",
+    "business": "PIT METER FOR IRIIGATION OF TOWNEHOMES. ONE INCH METER HAS B-BOX OUTSIDE",
+    "description": "PIT IN GRASS BETWEEN 1454 AND 1458 EAST NORTHWEST HIGHWAY.",
+    "lat": 42.07597,
+    "lng": -87.96415,
+    "serial": "12964451"
+  },
+  {
+    "street_num": "814",
+    "street_dir": "W",
+    "street": "NORTHWEST HWY.",
+    "business": "TEKSERVE POS 50 W ENDPOINT",
+    "description": "",
+    "lat": 42.09258,
+    "lng": -88.0016,
+    "serial": "05753672"
+  },
+  {
+    "street_num": "1213",
+    "street_dir": "E",
+    "street": "OAKTON ST",
+    "business": "ST. VIATORS BALL FIELD PIT",
+    "description": "NORTH SIDE OF BALL FIELD NEAR PARKING LOT",
+    "lat": 42.09354,
+    "lng": -87.9685,
+    "serial": "10906107"
+  },
+  {
+    "street_num": "800",
+    "street_dir": "W",
+    "street": "OAKTON ST",
+    "business": "LUTHERAN HOME 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.09685,
+    "lng": -87.99471,
+    "serial": "9609842"
+  },
+  {
+    "street_num": "3220",
+    "street_dir": "N",
+    "street": "OLD ARL HTS RD UT",
+    "business": "LEXINGTON HERITAGE TOWN HOMES",
+    "description": "PIT TWO OF TWO",
+    "lat": 42.13458,
+    "lng": -87.98056,
+    "serial": "G17269581"
+  },
+  {
+    "street_num": "3400",
+    "street_dir": "N",
+    "street": "OLD ARLINGTON HTS RD UT",
+    "business": "TIMBER COURT CONDOS SOUTH PIT 2",
+    "description": "",
+    "lat": 42.13693,
+    "lng": -87.98065,
+    "serial": "00703668"
+  },
+  {
+    "street_num": "3420",
+    "street_dir": "N",
+    "street": "OLD ARLINGTON HTS RD UT",
+    "business": "TIMBER COURT CONDOS NORTH PIT 1",
+    "description": "",
+    "lat": 42.13759,
+    "lng": -87.98151,
+    "serial": "00617995"
+  },
+  {
+    "street_num": "2754",
+    "street_dir": "N",
+    "street": "OLD BUFFALO GROVE RD",
+    "business": "BROOK RUN APARTMENTS PIT 2 WEST 60 W ENDPOINTS",
+    "description": "PIT 2 WEST",
+    "lat": 42.12572,
+    "lng": -87.96526,
+    "serial": "7177205"
+  },
+  {
+    "street_num": "2754",
+    "street_dir": "N",
+    "street": "OLD BUFFALO GROVE RD.",
+    "business": "BROOK RUN APARTMENTS PIT 1 EAST 60 W ENDPOINTS",
+    "description": "PIT 1 EAST",
+    "lat": 42.12652,
+    "lng": -87.96184,
+    "serial": "7132466"
+  },
+  {
+    "street_num": "210",
+    "street_dir": "E",
+    "street": "ORCHARD ST.",
+    "business": "O'LEARY 60 W ENDPOINTS",
+    "description": "FOUR FEET SOUTH OF 827 SOUTH  ARLINGTON HEIGHTS ROAD NEAR SIDE WALK",
+    "lat": 42.06877,
+    "lng": -87.98026,
+    "serial": "06705633"
+  },
+  {
+    "street_num": "20",
+    "street_dir": "E",
+    "street": "PALATINE RD UT",
+    "business": "ENCLAVES PIT 1 EAST",
+    "description": "EVERGREEN AND PALATINE RD",
+    "lat": 42.11033,
+    "lng": -87.98242,
+    "serial": "D7123228"
+  },
+  {
+    "street_num": "445",
+    "street_dir": "E",
+    "street": "PALATINE RD.",
+    "business": "TOWN AND COUNTRY WEST PIT 60 W ENDPOINTS",
+    "description": "IN FRONT OF WALGREENS",
+    "lat": 42.10752,
+    "lng": -87.98023,
+    "serial": "5494713"
+  },
+  {
+    "street_num": "445",
+    "street_dir": "E",
+    "street": "PALATINE RD.",
+    "business": "TOWN AND COUNTRY EAST PIT 60 W ENDPOINTS",
+    "description": "BEHIND BURGER KING NEAR DRIVE UP",
+    "lat": 42.10752,
+    "lng": -87.97414,
+    "serial": "6092151"
+  },
+  {
+    "street_num": "585",
+    "street_dir": "E",
+    "street": "PALATINE RD.",
+    "business": "GAP STORE 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.10957,
+    "lng": -87.97627,
+    "serial": "7068917"
+  },
+  {
+    "street_num": "1145",
+    "street_dir": "E",
+    "street": "PALATINE ROAD",
+    "business": "CARE ANIMAL HOSPITAL",
+    "description": "",
+    "lat": 42.10986,
+    "lng": -87.96945,
+    "serial": "00817335"
+  },
+  {
+    "street_num": "315",
+    "street_dir": "W",
+    "street": "PARK PL",
+    "business": "TOWNHOMES",
+    "description": "",
+    "lat": 42.08724,
+    "lng": -87.98752,
+    "serial": "06734108"
+  },
+  {
+    "street_num": "434",
+    "street_dir": "W",
+    "street": "PARK ST",
+    "business": "OUR LADY OF THE WAYSIDE/ ACTUAL LOC. 420 S. WALNUT 50W-2",
+    "description": "16 FEET NORTH OF BUILDING ACTUAL LOCATION 420 SOUTH WALNUT",
+    "lat": 42.07688,
+    "lng": -87.98898,
+    "serial": "D90321023"
+  },
+  {
+    "street_num": "1755",
+    "street_dir": "W",
+    "street": "PARTRIDGE LN.",
+    "business": "PHEASANT TRAIL 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.15044,
+    "lng": -88.00422,
+    "serial": "D7135162"
+  },
+  {
+    "street_num": "4221",
+    "street_dir": "N",
+    "street": "PHEASANT TRAIL CT.",
+    "business": "PHEASANT TRAIL 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.15172,
+    "lng": -88.00428,
+    "serial": "7134977"
+  },
+  {
+    "street_num": "375",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "PEP BOYS 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.11021,
+    "lng": -87.97902,
+    "serial": "9405012"
+  },
+  {
+    "street_num": "600",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "GARDEN FRESH PIT 1 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.10759,
+    "lng": -87.97254,
+    "serial": "D7115158"
+  },
+  {
+    "street_num": "600",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "GARDEN FRESH PIT 2 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.10954,
+    "lng": -87.97201,
+    "serial": "DD7115200"
+  },
+  {
+    "street_num": "630",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "OLIVE GARDEN RESTAURANT 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.10911,
+    "lng": -87.97477,
+    "serial": "7123225"
+  },
+  {
+    "street_num": "640",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "CHILI'S RESTAURANT HIGH LINE 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.1085,
+    "lng": -87.97392,
+    "serial": "7155370"
+  },
+  {
+    "street_num": "640",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "CHILI'S RESTAURANT LOW LINE",
+    "description": "",
+    "lat": 42.1085,
+    "lng": -87.97392,
+    "serial": "D7155370"
+  },
+  {
+    "street_num": "640",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "CHILI'S RESTAURANT FIRE LINE DC METER",
+    "description": "",
+    "lat": 42.1085,
+    "lng": -87.97392,
+    "serial": "D7155370"
+  },
+  {
+    "street_num": "644",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "SOUTHPOINT SHOPPING CENTER PIT 1 60 W ENDPOINTS",
+    "description": "",
+    "lat": 42.10807,
+    "lng": -87.97334,
+    "serial": "7123304"
+  },
+  {
+    "street_num": "644",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "SOUTHPOINT SHOPPING CENTER PIT 2",
+    "description": "",
+    "lat": 42.10648,
+    "lng": -87.96978,
+    "serial": "7123219"
+  },
+  {
+    "street_num": "1555",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "ROTO LINCOLN MERCURY L19653030 H19653103 F19653086",
+    "description": "",
+    "lat": 42.10058,
+    "lng": -87.96282,
+    "serial": "5470785"
+  },
+  {
+    "street_num": "1700",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "TARGET PIT 1 60W ERTS",
+    "description": "",
+    "lat": 42.10118,
+    "lng": -87.96315,
+    "serial": "5155175"
+  },
+  {
+    "street_num": "1700",
+    "street_dir": "E",
+    "street": "RAND RD",
+    "business": "TARGET PIT 2",
+    "description": "",
+    "lat": 42.10258,
+    "lng": -87.96108,
+    "serial": "5100309"
+  },
+  {
+    "street_num": "1",
+    "street_dir": "W",
+    "street": "RAND RD",
+    "business": "BRIXMORE 3 EAST 60W ERTS",
+    "description": "IN EAST PARKING LOT 60 FEET FROM NORTH ENTRANCE 60 FEET FROM A.H. ROAD",
+    "lat": 42.11216,
+    "lng": -87.98079,
+    "serial": "9900247"
+  },
+  {
+    "street_num": "600",
+    "street_dir": "W",
+    "street": "RAND RD",
+    "business": "STONEBRIDGE HILL  NORTHEAST PIT 2 60W ERTS",
+    "description": "",
+    "lat": 42.11846,
+    "lng": -87.98542,
+    "serial": "D5145094"
+  },
+  {
+    "street_num": "600",
+    "street_dir": "W",
+    "street": "RAND RD",
+    "business": "STONEBRIDGE HILL NORTHWEST PIT 3 60W ERTS",
+    "description": "",
+    "lat": 42.12365,
+    "lng": -87.99302,
+    "serial": "D5154980"
+  },
+  {
+    "street_num": "600",
+    "street_dir": "W",
+    "street": "RAND RD",
+    "business": "STONEBRIDGE HILL  SOUTHEAST PIT 1 60W ERTS",
+    "description": "",
+    "lat": 42.11795,
+    "lng": -87.9873,
+    "serial": "D5124604"
+  },
+  {
+    "street_num": "1058",
+    "street_dir": "W",
+    "street": "RAND RD",
+    "business": "STRIP MALL MASTER METER PIT 60W ERTS",
+    "description": "BEHIND ESSEX PLACE TOWNHOMES",
+    "lat": 42.12413,
+    "lng": -87.99431,
+    "serial": "D7123231"
+  },
+  {
+    "street_num": "1091",
+    "street_dir": "W",
+    "street": "RAND RD",
+    "business": "GREENWOOD PLACE PIT 1 60W ERTS",
+    "description": "",
+    "lat": 42.12285,
+    "lng": -87.99593,
+    "serial": "9701865"
+  },
+  {
+    "street_num": "1091",
+    "street_dir": "W",
+    "street": "RAND RD",
+    "business": "GREENWOOD PLACE PIT 2 60W ERTS",
+    "description": "",
+    "lat": 42.12243,
+    "lng": -87.99804,
+    "serial": "9701866"
+  },
+  {
+    "street_num": "10",
+    "street_dir": "W",
+    "street": "RAND RD UT",
+    "business": "PIT 1 EAST ROBIN REALTY",
+    "description": "",
+    "lat": 42.11571,
+    "lng": -87.98063,
+    "serial": "5100320"
+  },
+  {
+    "street_num": "100",
+    "street_dir": "W",
+    "street": "RAND RD UT",
+    "business": "ROBIN REALTY PIT 2 WEST",
+    "description": "",
+    "lat": 42.11558,
+    "lng": -87.98443,
+    "serial": "5019875"
+  },
+  {
+    "street_num": "115",
+    "street_dir": "W",
+    "street": "RAND RD UT001",
+    "business": "BRIXMORE PIT 1 WEST",
+    "description": "HELENA PLAZA EAST ENTRANCE 5 FEET EAST OF DRIVEWAY",
+    "lat": 42.11498,
+    "lng": -87.98426,
+    "serial": "7135662"
+  },
+  {
+    "street_num": "115",
+    "street_dir": "W",
+    "street": "RAND RD UT002",
+    "business": "BRIXMORE PIT 2 MIDDLE 60W ERTS",
+    "description": "MAIN ENTRANCE IN PARKING LOT ISLAND. LOOK FOR DECRATIVE ROCKS.",
+    "lat": 42.11336,
+    "lng": -87.98184,
+    "serial": "7147636"
+  },
+  {
+    "street_num": "601",
+    "street_dir": "W",
+    "street": "RAND RD.",
+    "business": "FOUNTAINS CONDOMINIUMS EAST PIT 1",
+    "description": "20 FEET SOUTH OF RAND NEAR EAST ENTRANCE",
+    "lat": 42.11902,
+    "lng": -87.99007,
+    "serial": "0008581"
+  },
+  {
+    "street_num": "601",
+    "street_dir": "W",
+    "street": "RAND RD.",
+    "business": "FOUNTAINS CONDOMINIUMS WEST PIT 2",
+    "description": "20 FEET SOUTH OF RAND NEAR WEST ENTRANCE",
+    "lat": 42.12023,
+    "lng": -87.99194,
+    "serial": "0108175"
+  },
+  {
+    "street_num": "3350",
+    "street_dir": "N",
+    "street": "RIDGE AV",
+    "business": "GE HEALTHCARE 60W ERTS",
+    "description": "",
+    "lat": 42.13537,
+    "lng": -87.99156,
+    "serial": "D0002455"
+  },
+  {
+    "street_num": "300",
+    "street_dir": "N",
+    "street": "RIDGE AV.",
+    "business": "MOLON MOTOR 60W ERTS",
+    "description": "NE CORNER OF RIDGE AND EASTMAN IN PARKWAY",
+    "lat": 42.08564,
+    "lng": -87.9904,
+    "serial": "7135032"
+  },
+  {
+    "street_num": "660",
+    "street_dir": "N",
+    "street": "RIDGE AV.",
+    "business": "OLYMPIC POOL DRINKING FOUNTAIN 50W-1",
+    "description": "DRINKING FOUNTAIN PIT",
+    "lat": 42.08979,
+    "lng": -87.99042,
+    "serial": "83329150"
+  },
+  {
+    "street_num": "3060",
+    "street_dir": "W",
+    "street": "SALT CREEK LN",
+    "business": "NORTHWEST COMMUNITY HOSPITAL OFFICES",
+    "description": "IN GRASS ISLAND IN FRONT",
+    "lat": 42.09198,
+    "lng": -88.01998,
+    "serial": "H180026266"
+  },
+  {
+    "street_num": "4250",
+    "street_dir": "N",
+    "street": "SCHAEFER RD",
+    "business": "ARLINGTON TRAILS CONDOS EAST PIT 60W ERTS",
+    "description": "EAST PIT",
+    "lat": 42.15294,
+    "lng": -87.99966,
+    "serial": "9307626"
+  },
+  {
+    "street_num": "4216",
+    "street_dir": "N",
+    "street": "SCHAEFER RD.",
+    "business": "PHEASANT TRAIL 60W ERTS",
+    "description": "",
+    "lat": 42.15229,
+    "lng": -87.99983,
+    "serial": "7194498"
+  },
+  {
+    "street_num": "215",
+    "street_dir": "E",
+    "street": "SEEGERS RD.",
+    "business": "TVO TANGLEWOOD LLC PIT 3",
+    "description": "30 FEET NE OF 321 EAST SEEGERS",
+    "lat": 42.05012,
+    "lng": -87.97764,
+    "serial": "5155176"
+  },
+  {
+    "street_num": "1500",
+    "street_dir": "W",
+    "street": "SHURE DR.",
+    "business": "JONES, LANG AND LASALLE PIT 2 EAST 60W ERTS",
+    "description": "PIT TWO EAST",
+    "lat": 42.13709,
+    "lng": -88.00037,
+    "serial": "7134975"
+  },
+  {
+    "street_num": "1500",
+    "street_dir": "W",
+    "street": "SHURE DR.",
+    "business": "JONES, LANG AND LASALLE PIT 1 WEST",
+    "description": "PIT ONE WEST",
+    "lat": 42.1371,
+    "lng": -88.00137,
+    "serial": "7135045"
+  },
+  {
+    "street_num": "1501",
+    "street_dir": "W",
+    "street": "SHURE DR.",
+    "business": "MOTOROLA- POSSIBLE IRRIGATION",
+    "description": "",
+    "lat": 42.13666,
+    "lng": -87.99823,
+    "serial": "6034290"
+  },
+  {
+    "street_num": "2900",
+    "street_dir": "N",
+    "street": "SILVER LAKE RD",
+    "business": "LAKE ARLINGTON TOWNE PIT 10 60W ERTS",
+    "description": "ACTUAL LOCATION 1908 N SILVER LAKE RD",
+    "lat": 42.1101,
+    "lng": -87.94819,
+    "serial": "D9205882"
+  },
+  {
+    "street_num": "2900",
+    "street_dir": "N",
+    "street": "SILVER LAKE RD",
+    "business": "LAKE ARLINGTON TOWNE PIT 9 50W-2",
+    "description": "ACTUAL LOCATION 2016 N SILVER LAKE RD",
+    "lat": 42.11211,
+    "lng": -87.94794,
+    "serial": "D8025620"
+  },
+  {
+    "street_num": "3400",
+    "street_dir": "W",
+    "street": "STONEGATE BLV",
+    "business": "ARLINGTON ONE DEVELOPMENT 50W-1 ERTS",
+    "description": "ON ROHLWING RD. 24 FEET FROM STREET NEXT TO NORTH DRIVE. FUTURE ADDRESS 3400 WEST STONEGATE BLVD UT001",
+    "lat": 42.0911,
+    "lng": -88.0265,
+    "serial": "6066925"
+  },
+  {
+    "street_num": "3400",
+    "street_dir": "W",
+    "street": "STONEGATE BLV UT002",
+    "business": "ARLINGTON ONE DEVELOPMENT",
+    "description": "MIDDLE PIT FUTURE ADDRESS 3400 WEST STONEGATE BLVD UT002",
+    "lat": 42.09011,
+    "lng": -88.0265,
+    "serial": "13857320"
+  },
+  {
+    "street_num": "3400",
+    "street_dir": "W",
+    "street": "STONEGATE BLV UT003",
+    "business": "ARLINGTON ONE DEVELOPMENT",
+    "description": "EAST PIT FUTURE ADDRESS 3400 WEST STONEGATE BLVD UT003",
+    "lat": 42.08865,
+    "lng": -88.02375,
+    "serial": "13949497"
+  },
+  {
+    "street_num": "851",
+    "street_dir": "W",
+    "street": "THOMAS ST.",
+    "business": "LUTHER VILLAGE PIT 2 60W ERTS",
+    "description": "",
+    "lat": 42.10272,
+    "lng": -87.99395,
+    "serial": "D8025578"
+  },
+  {
+    "street_num": "1900",
+    "street_dir": "E",
+    "street": "THOMAS ST. UT002",
+    "business": "HERSEY HIGH SCHOOL",
+    "description": "NEAR TRACK FIELD",
+    "lat": 42.10462,
+    "lng": -87.95729,
+    "serial": "89929993"
+  },
+  {
+    "street_num": "2496",
+    "street_dir": "E",
+    "street": "TOWNE BLV",
+    "business": "LAKE ARLINGTON TOWNE PIT 1 OF2 100W ERTS",
+    "description": "ACTUAL LOCATION 2472 EAST TOWNE",
+    "lat": 42.11276,
+    "lng": -87.95209,
+    "serial": "D7200181"
+  },
+  {
+    "street_num": "2496",
+    "street_dir": "E",
+    "street": "TOWNE BLV",
+    "business": "LAKE ARLINGTON TOWNE PIT 2 OF 2 100W ERTS",
+    "description": "ACTUAL LOCATION 2092 LAKE ARLINGTON DR",
+    "lat": 42.11344,
+    "lng": -87.95144,
+    "serial": "D7200180"
+  },
+  {
+    "street_num": "40",
+    "street_dir": "E",
+    "street": "UNIVERSITY DR.",
+    "business": "VAN RIET FOLKERSON PT. 60W ERTS",
+    "description": "",
+    "lat": 42.13281,
+    "lng": -87.98213,
+    "serial": "5094986"
+  },
+  {
+    "street_num": "3750",
+    "street_dir": "N",
+    "street": "VENTURA DR.",
+    "business": "SPRINT COMMUNICATIONS 60W ERTS",
+    "description": "NEAR SILVER FIRE CONNECTION 5 FEET EAST OF PARKING LOT",
+    "lat": 42.14376,
+    "lng": -88.00121,
+    "serial": "D9706634"
+  },
+  {
+    "street_num": "3820",
+    "street_dir": "N",
+    "street": "VENTURA DR.",
+    "business": "DDC 60W ERTS",
+    "description": "15 FEET NORTH OF SIGN NEAR PINE TREE",
+    "lat": 42.14527,
+    "lng": -88.00108,
+    "serial": "D7123224"
+  },
+  {
+    "street_num": "1120",
+    "street_dir": "N",
+    "street": "VILLAGE DR.",
+    "business": "LUTHER VILLAGE PIT 1 60W ERTS",
+    "description": "",
+    "lat": 42.09622,
+    "lng": -87.99141,
+    "serial": "8025585"
+  },
+  {
+    "street_num": "3700",
+    "street_dir": "N",
+    "street": "WILKE RD",
+    "business": "MARRIOT 60W ERTS",
+    "description": "",
+    "lat": 42.14355,
+    "lng": -88.00466,
+    "serial": "D7155372"
+  },
+  {
+    "street_num": "4251",
+    "street_dir": "N",
+    "street": "WILKE RD",
+    "business": "ARLINGTON TRAILS CONDOS 60W ERTS",
+    "description": "SE CORNER OF WILKE AND HAWKES",
+    "lat": 42.15305,
+    "lng": -88.00426,
+    "serial": "DD9308464"
+  },
+  {
+    "street_num": "3105",
+    "street_dir": "N",
+    "street": "WILKE RD.",
+    "business": "ENTERPRISE OFFICE CAMPUS PIT 1 SOUTH 60W ERTS",
+    "description": "HAMILTON PARTNERS PIT 1 SOUTH",
+    "lat": 42.13199,
+    "lng": -88.0042,
+    "serial": "D7147670"
+  },
+  {
+    "street_num": "3105",
+    "street_dir": "N",
+    "street": "WILKE RD.",
+    "business": "ENTERPRISE OFFICE CAMPUS PIT 2 NORTH 60W ERTS",
+    "description": "HAMILTON PARTNERS PIT 2 NORTH",
+    "lat": 42.13331,
+    "lng": -88.00413,
+    "serial": "D7147677"
+  },
+  {
+    "street_num": "3231",
+    "street_dir": "N",
+    "street": "WILKE RD.",
+    "business": "ARLINGTON RIDGE LLC PIT 1 NORTH",
+    "description": "ARLINGTON RIDGE LLC PIT 1 NORTH",
+    "lat": 42.13437,
+    "lng": -88.00409,
+    "serial": "D6086924"
+  },
+  {
+    "street_num": "3231",
+    "street_dir": "N",
+    "street": "WILKE RD.",
+    "business": "ARLINGTON RIDGE LLC PIT 2 SOUTH 60W ERTS",
+    "description": "ARLINGTON RIDGE LLC PIT 2 SOUTH",
+    "lat": 42.13335,
+    "lng": -88.00415,
+    "serial": "D6086923"
+  },
+  {
+    "street_num": "660",
+    "street_dir": "E",
+    "street": "WINDGATE CT",
+    "business": "WINDGATE EAST PIT  100W ERTS",
+    "description": "LOCATED NEAR WINGATE ENTRANCE NORTH SIDE OF STREET IN PARKWAY",
+    "lat": 42.05248,
+    "lng": -87.97553,
+    "serial": "D7134940"
+  },
+  {
+    "street_num": "660",
+    "street_dir": "E",
+    "street": "WINDGATE CT",
+    "business": "WINDGATE WEST PIT 100W ERTS",
+    "description": "SOUTHWEST CORNER OF SUBDIVISION NEAR FENCE",
+    "lat": 42.05238,
+    "lng": -87.97772,
+    "serial": "D7135696"
+  },
+  {
+    "street_num": "2201",
+    "street_dir": "N",
+    "street": "WINDSOR DR UT",
+    "business": "PARK DISTRICT WATER FEATURE",
+    "description": "",
+    "lat": 42.11504,
+    "lng": -87.96407,
+    "serial": "H13936710"
+  },
+  {
+    "street_num": "1604",
+    "street_dir": "N",
+    "street": "WINDSOR DR.",
+    "business": "COURTS OF WINDSOR 60W ERTS",
+    "description": "",
+    "lat": 42.10484,
+    "lng": -87.96602,
+    "serial": "DD7135073"
+  },
+  {
+    "street_num": "1638",
+    "street_dir": "N",
+    "street": "WINDSOR DR.",
+    "business": "COURTS OF WINDSOR 60W ERTS",
+    "description": "",
+    "lat": 42.10617,
+    "lng": -87.96631,
+    "serial": "D7135693"
+  },
+  {
+    "street_num": "699",
+    "street_dir": "E",
+    "street": "WING ST UT001",
+    "business": "ARLINGTON CROSSING",
+    "description": "ARLINGTON CROSSING",
+    "lat": 42.08318,
+    "lng": -87.97376,
+    "serial": "10908914"
+  },
+  {
+    "street_num": "1433",
+    "street_dir": "W",
+    "street": "WOODS DR. UT",
+    "business": "THE POINTE PROPERTIES LTD. PIT 1 EAST 60W ERTS",
+    "description": "PIT 1 EAST LOW OXYGEN",
+    "lat": 42.12464,
+    "lng": -87.99863,
+    "serial": "D713300"
+  },
+  {
+    "street_num": "1444",
+    "street_dir": "W",
+    "street": "WOODS DR. UT",
+    "business": "THE POINTE PROPERTIES LTD. PIT 2 WEST 100W ERTS",
+    "description": "PIT 2 WEST LOW OXYGEN",
+    "lat": 42.1268,
+    "lng": -88.00156,
+    "serial": "D7123322"
+  }
+]
