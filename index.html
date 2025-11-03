@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spreadsheet → Map Pins (Google Maps with OSM Fallback)</title>
+  <style>
+    :root { --bg:#0b1020; --panel:#121a2e; --accent:#4cc9f0; --muted:#94a3b8; --ok:#22c55e; --warn:#f59e0b; --err:#ef4444; }
+    html, body { height: 100%; margin: 0; background: var(--bg); color: white; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; }
+    .app { display: grid; grid-template-columns: 380px 1fr; gap: 0; height: 100%; }
+    .sidebar { background: var(--panel); height: 100%; display: flex; flex-direction: column; border-right: 1px solid rgba(255,255,255,0.06); }
+    .header { padding: 16px 16px 8px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    h1 { font-size: 16px; margin: 0 0 8px; font-weight: 700; letter-spacing: .2px; }
+    .sub { font-size: 12px; color: var(--muted); }
+    .controls { padding: 12px 16px; display: grid; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .row { display: grid; gap: 8px; }
+    label { font-size: 12px; color: var(--muted); }
+    input[type="file"], input[type="text"], input[type="password"], select, button { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: #0f172a; color: #e2e8f0; }
+    input::file-selector-button { border: 0; margin-right: 10px; padding: 8px 10px; border-radius: 8px; background: var(--accent); color: #00111a; font-weight: 700; }
+    .btnrow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    button.primary { background: var(--accent); color: #00111a; font-weight: 700; }
+    button.ghost { background: transparent; }
+    button.toggle { background: #0f172a; }
+    .stats { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 12px; color: var(--muted); }
+    .list { flex: 1; overflow: auto; }
+    .item { padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); cursor: pointer; }
+    .item:hover { background: rgba(255,255,255,0.04); }
+    .title { font-size: 14px; font-weight: 600; }
+    .meta { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    #map { height: 100%; width: 100%; }
+    .alert { background: rgba(239,68,68,.12); color: #fecaca; border: 1px solid rgba(239,68,68,.35); padding: 10px 12px; border-radius: 10px; font-size: 12px; }
+    .ok { color: var(--ok); }
+    @media (max-width: 900px) { .app { grid-template-columns: 1fr; } .sidebar { height: auto; max-height: 58vh; } #map { height: 42vh; } }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="header">
+        <h1>Spreadsheet → Map Pins</h1>
+        <div class="sub">Uploads supported, but preloads <code>/data/pit_locations.json</code> automatically on page load. Google Maps primary, OSM fallback.</div>
+      </div>
+      <div class="controls">
+        <div class="row">
+          <label for="gmKey">0) Google Maps API key</label>
+          <input id="gmKey" type="password" placeholder="Paste your key (stored locally)" />
+          <div class="sub">Tip: key is saved in browser storage. You can also pass <code>?key=YOUR_KEY</code> in the URL.</div>
+          <div class="btnrow">
+            <button id="loadMapsBtn" class="primary">Load / Reload Google Maps</button>
+            <button id="useOSMBtn" class="ghost" title="Use OpenStreetMap without billing">Use OpenStreetMap</button>
+          </div>
+          <div id="keyWarn" class="alert" style="display:none">Paste a valid key and click <b>Load</b> to use Google Maps. If you hit <b>BillingNotEnabledMapError</b>, click <b>Use OpenStreetMap</b> to continue.</div>
+        </div>
+        <div class="row">
+          <label>Preloaded dataset</label>
+          <div class="btnrow">
+            <button id="reloadPreloadBtn" class="ghost">Reload Preloaded Data</button>
+            <span class="sub" id="preloadStatus" style="align-self:center"></span>
+          </div>
+          <div class="sub">Auto-fetches <code>/data/pit_locations.json</code> on page load and renders all pins.</div>
+        </div>
+        <div class="row">
+          <label for="fileInput">1) Upload .xlsx/.csv (expected columns by letter)</label>
+          <input id="fileInput" type="file" accept=".xlsx,.xls,.csv" />
+          <div class="sub">E=Street #, F=Dir, G=Street, H=Business, I=Description, J=Lat, K=Lng, Q=Serial #</div>
+        </div>
+        <div class="row">
+          <label for="search">2) Search</label>
+          <input id="search" type="text" placeholder="Type to filter: 123, Main, N, description, or serial…" />
+        </div>
+        <div class="row">
+          <label for="mode">Filter by field</label>
+          <select id="mode">
+            <option value="all">All fields</option>
+            <option value="address">Address</option>
+            <option value="number">Street number</option>
+            <option value="street">Street name</option>
+            <option value="description">Description</option>
+            <option value="serial">Serial #</option>
+          </select>
+        </div>
+        <div class="btnrow">
+          <button id="fitBtn" class="primary">Fit to pins</button>
+          <button id="resetBtn" class="ghost">Show all</button>
+        </div>
+        <div class="btnrow">
+          <button id="clusterToggle" class="toggle">Clustering: On</button>
+          <button id="downloadBtn" class="ghost" title="Download a sample template for testing">Sample file</button>
+        </div>
+        <div id="selftest" class="sub"></div>
+      </div>
+      <div class="stats">
+        <span id="count">0 pins</span>
+        <span id="filtered" style="display:none">• <span id="filteredCount">0</span> shown</span>
+        <span id="status" style="margin-left:auto"></span>
+      </div>
+      <div id="list" class="list"></div>
+    </aside>
+    <main id="map"></main>
+  </div>
+
+  <!-- SheetJS for parsing Excel in the browser -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <!-- Optional: Google MarkerClusterer (used if Google engine active) -->
+  <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
+  <script>
+  // =====================
+  // Engine selection & state
+  // =====================
+  let ENGINE = 'google'; // 'google' or 'leaflet'
+  let map, bounds, infoWindow; // google
+  let leafletMap, leafletMarkers = [], leafletCluster; // leaflet
+  let dataRows = []; // normalized rows
+  let markers = []; // google markers
+  let clusterer = null; // google clusterer
+  let clusteringEnabled = true;
+  let preloadReady = false;
+  let preloadError = null;
+
+  const el = (id) => document.getElementById(id);
+  const fmt = (v) => (v === undefined || v === null) ? "" : String(v).trim();
+  const clamp = (n, min, max) => Math.min(Math.max(n, min), max);
+  const toNum = (v) => { if (v === undefined || v === null || v === "") return NaN; const s = String(v).replace(/[°,]/g, "").trim(); return Number(s); };
+
+  // ---------- Self-tests (do not modify existing ones; add more) ----------
+  (function runSelfTests(){
+    const tests = [];
+    const assertEq = (name, got, exp) => tests.push({name, pass: Object.is(got, exp) || (Number.isNaN(got) && Number.isNaN(exp)), got, exp});
+    // Existing
+    assertEq('toNum basic', toNum('41.1234'), 41.1234);
+    assertEq('toNum with degree symbol', toNum('41.1234°'), 41.1234);
+    assertEq('toNum empty', Number.isNaN(toNum('')) ? true : false, true);
+    assertEq('fmt trims', fmt('  abc '), 'abc');
+    // Added
+    assertEq('clamp lower', clamp(-100, -85, 85), -85);
+    assertEq('clamp upper', clamp(181, -180, 180), 180);
+    const sample = {street_num:'1',street_dir:'N',street:'Main',business:'Shop',description:'Desc',lat:41.0,lng:-87.0,serial:'S1'};
+    assertEq('json fields exist', ['street_num','street_dir','street','business','description','lat','lng','serial'].every(k=>k in sample), true);
+    const passed = tests.filter(t=>t.pass).length;
+    el('selftest').innerHTML = `Self‑test: <span class="${passed===tests.length?'ok':''}">${passed}/${tests.length} passed</span>`;
+    console.log('[Self‑tests]', tests);
+  })();
+
+  // ---------- Preload JSON on startup ----------
+  const PRELOAD_URL = '/data/pit_locations.json';
+  (async function fetchPreload(){
+    try {
+      const resp = await fetch(PRELOAD_URL, { cache: 'no-store' });
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const json = await resp.json();
+      if (!Array.isArray(json)) throw new Error('Invalid JSON shape: expected an array');
+      dataRows = json.map((r, idx) => ({
+        rowIndex: idx+1,
+        lat: Number(r.lat),
+        lng: Number(r.lng),
+        streetNum: fmt(r.street_num),
+        streetDir: fmt(r.street_dir),
+        street: fmt(r.street),
+        business: fmt(r.business),
+        address: [fmt(r.street_num), fmt(r.street_dir), fmt(r.street)].filter(Boolean).join(' ').replace(/\s+/g,' '),
+        description: fmt(r.description),
+        serial: fmt(r.serial),
+      })).filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lng));
+      preloadReady = true; preloadError = null; el('preloadStatus').textContent = `Preloaded ${dataRows.length} rows`;
+      // If a map engine is already ready, render now; otherwise engine init will render
+      if (window.google && window.google.maps || window.L) { renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins(); }
+    } catch (e) {
+      preloadError = e; preloadReady = false; el('preloadStatus').textContent = `Preload error: ${e.message}`; console.error('Preload JSON error', e);
+    }
+  })();
+
+  el('reloadPreloadBtn')?.addEventListener('click', async () => {
+    el('preloadStatus').textContent = 'Reloading…'; preloadReady = false; preloadError = null;
+    try {
+      const resp = await fetch(PRELOAD_URL + `?t=${Date.now()}`, { cache: 'no-store' });
+      const json = await resp.json();
+      dataRows = json.map((r, idx) => ({
+        rowIndex: idx+1,
+        lat: Number(r.lat),
+        lng: Number(r.lng),
+        streetNum: fmt(r.street_num),
+        streetDir: fmt(r.street_dir),
+        street: fmt(r.street),
+        business: fmt(r.business),
+        address: [fmt(r.street_num), fmt(r.street_dir), fmt(r.street)].filter(Boolean).join(' ').replace(/\s+/g,' '),
+        description: fmt(r.description),
+        serial: fmt(r.serial),
+      })).filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lng));
+      preloadReady = true; el('preloadStatus').textContent = `Preloaded ${dataRows.length} rows`;
+      renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins();
+    } catch (e) { preloadError = e; el('preloadStatus').textContent = `Preload error: ${e.message}`; }
+  });
+
+  // ---------- Key management ----------
+  const URL_KEY = new URLSearchParams(location.search).get('key');
+  const LS_KEY = 'gmaps_api_key';
+  if (URL_KEY) localStorage.setItem(LS_KEY, URL_KEY);
+  el('gmKey').value = localStorage.getItem(LS_KEY) || (URL_KEY || '');
+
+  el('loadMapsBtn').addEventListener('click', () => {
+    const key = el('gmKey').value.trim();
+    if (!key) { showKeyWarning('No API key provided.'); return; }
+    localStorage.setItem(LS_KEY, key);
+    ENGINE = 'google';
+    loadGoogleMaps(key);
+  });
+
+  el('useOSMBtn').addEventListener('click', async () => {
+    ENGINE = 'leaflet';
+    await ensureLeafletLoaded();
+    hideKeyWarning();
+    initLeaflet();
+    renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins();
+  });
+
+  // Auto attempt Google on load if key exists, else show notice
+  if (el('gmKey').value) { loadGoogleMaps(el('gmKey').value); }
+  else { showKeyWarning('Google Maps is not loaded yet. Paste your API key or switch to OpenStreetMap.'); }
+
+  // ---------- Google Maps loading ----------
+  function loadGoogleMaps(key) {
+    if (window.google && window.google.maps) { tryInitGoogle(); return; }
+    const old = document.getElementById('gmapsjs'); if (old) old.remove();
+    const src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&callback=__gmapsInit`;
+    const s = document.createElement('script'); s.id = 'gmapsjs'; s.async = true; s.defer = true; s.src = src;
+    s.onerror = () => showKeyWarning('Failed to load Google Maps script. Check your network and key.');
+    window.__gmapsInit = () => { tryInitGoogle(); };
+    setTimeout(() => {
+      if (!window.google || !window.google.maps) {
+        showKeyWarning('Google Maps failed to initialize. This often means the API key is invalid or billing is not enabled. You can click "Use OpenStreetMap" to proceed without billing.');
+      }
+    }, 8000);
+    document.head.appendChild(s);
+  }
+  function tryInitGoogle() { hideKeyWarning(); try { initGoogle(); } catch (e) { console.error(e); showKeyWarning('Google Maps initialized but the app failed to start. If you see BillingNotEnabledMapError, enable billing or switch to OpenStreetMap.'); } }
+
+  // ---------- Google engine ----------
+  function initGoogle() {
+    ENGINE = 'google';
+    map = new google.maps.Map(document.getElementById('map'), { center: { lat: 41.8781, lng: -87.6298 }, zoom: 11, mapTypeControl:false, streetViewControl:false, fullscreenControl:true });
+    bounds = new google.maps.LatLngBounds(); infoWindow = new google.maps.InfoWindow(); wireUI(); if (preloadReady) { renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins(); }
+  }
+
+  // ---------- Leaflet engine (OSM) ----------
+  async function ensureLeafletLoaded() {
+    if (window.L) return;
+    const link = document.createElement('link'); link.rel = 'stylesheet'; link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'; document.head.appendChild(link);
+    const link2 = document.createElement('link'); link2.rel = 'stylesheet'; link2.href = 'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css'; document.head.appendChild(link2);
+    const link3 = document.createElement('link'); link3.rel = 'stylesheet'; link3.href = 'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css'; document.head.appendChild(link3);
+    await new Promise((res, rej)=>{ const s=document.createElement('script'); s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'; s.onload=res; s.onerror=rej; document.head.appendChild(s); });
+    await new Promise((res, rej)=>{ const s=document.createElement('script'); s.src='https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js'; s.onload=res; s.onerror=rej; document.head.appendChild(s); });
+  }
+  function initLeaflet() {
+    ENGINE = 'leaflet';
+    leafletMap = L.map('map', { zoomControl: true });
+    const center = [41.8781, -87.6298]; leafletMap.setView(center, 11);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' }).addTo(leafletMap);
+    bounds = L.latLngBounds([]); wireUI(); if (preloadReady) { renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins(); }
+  }
+
+  // ---------- Common UI wiring ----------
+  function wireUI() {
+    el('fileInput').onchange = handleFile;
+    el('search').oninput = throttle(applyFilter, 120);
+    el('mode').onchange = applyFilter;
+    el('fitBtn').onclick = fitToVisiblePins;
+    el('resetBtn').onclick = () => { el('search').value = ''; applyFilter(); fitToVisiblePins(); };
+    el('clusterToggle').onclick = () => { clusteringEnabled = !clusteringEnabled; el('clusterToggle').textContent = `Clustering: ${clusteringEnabled ? 'On' : 'Off'}`; renderMarkers(); applyFilter(); };
+    el('downloadBtn').onclick = downloadSample;
+  }
+
+  // ---------- File handling (upload) ----------
+  async function handleFile(evt) {
+    const file = evt.target.files?.[0]; if (!file) return; setStatus(`Reading ${file.name}…`);
+    const buf = await file.arrayBuffer(); let rows = [];
+    if (file.name.toLowerCase().endsWith('.csv')) { const wb = XLSX.read(new Uint8Array(buf), { type: 'array' }); const ws = wb.Sheets[wb.SheetNames[0]]; rows = XLSX.utils.sheet_to_json(ws, { header: 1, raw: false }); }
+    else { const wb = XLSX.read(buf, { type: 'array' }); const ws = wb.Sheets[wb.SheetNames[0]]; rows = XLSX.utils.sheet_to_json(ws, { header: 1, raw: false }); }
+    const out = [];
+    for (let r = 1; r < rows.length; r++) {
+      const row = rows[r] || [];
+      const streetNum = fmt(row[4]);
+      const streetDir = fmt(row[5]);
+      const street    = fmt(row[6]);
+      const business  = fmt(row[7]);
+      const desc      = fmt(row[8]);
+      const lat       = toNum(row[9]);
+      const lng       = toNum(row[10]);
+      const serial    = fmt(row[16]);
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
+      const address = [streetNum, streetDir, street].filter(Boolean).join(' ').replace(/\s+/g, ' ');
+      out.push({ rowIndex:r, lat, lng, streetNum, streetDir, street, business, address, description:desc, serial });
+    }
+    dataRows = out; renderMarkers(); renderList(dataRows); setCounts(); if (getMarkerCount()) fitToVisiblePins(); setStatus(`Loaded ${dataRows.length} rows`);
+  }
+
+  // ---------- Marker rendering ----------
+  function clearMarkers() {
+    if (ENGINE === 'google') { if (clusterer) { clusterer.clearMarkers(); clusterer = null; } markers.forEach(m => m.setMap(null)); markers = []; bounds = new google.maps.LatLngBounds(); }
+    else { if (leafletCluster) { leafletMap.removeLayer(leafletCluster); leafletCluster = null; } leafletMarkers.forEach(m => leafletMap.removeLayer(m)); leafletMarkers = []; bounds = L.latLngBounds([]); }
+  }
+  function renderMarkers() {
+    if (ENGINE === 'google' && (!window.google || !window.google.maps)) { showKeyWarning('Google Maps not available. Load with a valid key or switch to OpenStreetMap.'); return; }
+    clearMarkers();
+    for (const d of dataRows) {
+      const lat = clamp(d.lat, -85, 85), lng = clamp(d.lng, -180, 180);
+      if (ENGINE === 'google') {
+        const marker = new google.maps.Marker({ position: {lat, lng}, map, title: d.address || d.description || `Row ${d.rowIndex}` });
+        marker.__row = d; markers.push(marker); bounds.extend(marker.getPosition()); marker.addListener('click', () => openInfo(marker));
+      } else {
+        const marker = L.marker([lat, lng]); marker.__row = d; marker.on('click', () => openInfo(marker)); leafletMarkers.push(marker); bounds.extend([lat, lng]);
+      }
+    }
+    if (ENGINE === 'google') { if (clusteringEnabled && markers.length) { const { MarkerClusterer } = window['@googlemaps/markerclusterer']; clusterer = new MarkerClusterer({ map, markers }); } }
+    else { if (clusteringEnabled && leafletMarkers.length && window.L && L.markerClusterGroup) { leafletCluster = L.markerClusterGroup(); leafletMarkers.forEach(m => leafletCluster.addLayer(m)); leafletMap.addLayer(leafletCluster); } else { leafletMarkers.forEach(m => m.addTo(leafletMap)); } }
+  }
+  function openInfo(marker) {
+    const d = marker.__row;
+    const titleLine = escapeHTML(d.address || '—');
+    const businessLine = d.business ? `<div style="font-weight:600; font-size:12px;">${escapeHTML(d.business)}</div>` : '';
+    const html = `
+      <div style="min-width:260px">
+        <div style="font-weight:700; font-size:14px;">${titleLine}</div>
+        ${businessLine}
+        <div style="color:#64748b; font-size:12px; margin:4px 0 8px;">${escapeHTML(d.description || '')}</div>
+        <div style="font-size:12px; line-height:1.4">
+          <div><b>Serial #:</b> ${escapeHTML(d.serial || '—')}</div>
+          <div><b>Lat/Lng:</b> ${Number(d.lat).toPrecision(10)}, ${Number(d.lng).toPrecision(10)}</div>
+          <div><b>Row:</b> ${d.rowIndex + 1}</div>
+        </div>
+      </div>`;
+    if (ENGINE === 'google') { if (!infoWindow) infoWindow = new google.maps.InfoWindow(); infoWindow.setContent(html); infoWindow.open({ map, anchor: marker }); }
+    else { marker.bindPopup(html).openPopup(); }
+  }
+  function fitToVisiblePins() {
+    if (ENGINE === 'google') { const b = new google.maps.LatLngBounds(); let any=false; for (const m of markers) { if (m.getVisible ? m.getVisible() : true) { b.extend(m.getPosition()); any=true; } } if (any) map.fitBounds(b, { top: 40, right: 40, bottom: 40, left: 40 }); }
+    else { if (leafletMarkers.length) { const b = L.latLngBounds(leafletMarkers.map(m => m.getLatLng())); leafletMap.fitBounds(b.pad(0.1)); } }
+  }
+  function getMarkerCount(){ return ENGINE==='google' ? markers.length : leafletMarkers.length; }
+
+  // ---------- Search & filtering ----------
+  function applyFilter() {
+    const q = el('search').value.trim().toLowerCase(); const mode = el('mode').value; let passed = 0; const matchedItems = [];
+    if (ENGINE === 'google') {
+      for (const m of markers) { const d = m.__row; const hay = buildHaystack(d, mode); const ok = q === '' ? true : hay.includes(q); if (m.setVisible) m.setVisible(ok); if (ok) { passed++; matchedItems.push(d); } }
+      if (clusterer) clusterer.repaint?.();
+    } else {
+      if (leafletCluster) { leafletMap.removeLayer(leafletCluster); leafletCluster = null; }
+      leafletMarkers.forEach(m => leafletMap.removeLayer(m));
+      const filtered = [];
+      leafletMarkers.forEach(m => { const d = m.__row; const hay = buildHaystack(d, mode); const ok = q === '' ? true : hay.includes(q); if (ok) { filtered.push(m); passed++; matchedItems.push(d); } });
+      if (clusteringEnabled && filtered.length && window.L && L.markerClusterGroup) { leafletCluster = L.markerClusterGroup(); filtered.forEach(m => leafletCluster.addLayer(m)); leafletMap.addLayer(leafletCluster); } else { filtered.forEach(m => m.addTo(leafletMap)); }
+    }
+    setCounts(passed); renderList(matchedItems);
+  }
+  function buildHaystack(d, mode) {
+    const address = (d.address || '').toLowerCase(); const number = (d.streetNum || '').toLowerCase(); const street = (d.street || '').toLowerCase(); const description = (d.description || '').toLowerCase(); const serial = (d.serial || '').toLowerCase();
+    switch (mode) { case 'address': return address; case 'number': return number; case 'street': return street; case 'description': return description; case 'serial': return serial; default: return [address, description, serial, (d.business||'').toLowerCase()].join(' | '); }
+  }
+
+  // ---------- Sidebar list ----------
+  function renderList(rows) {
+    const list = el('list'); list.innerHTML = ''; const frag = document.createDocumentFragment();
+    rows.forEach((d) => { const div = document.createElement('div'); div.className = 'item'; div.innerHTML = `
+        <div class="title">${escapeHTML(d.address || '(no address)')}</div>
+        <div class="meta">${escapeHTML(d.business || '')}</div>
+        <div class="meta">${escapeHTML(d.description || '')}</div>
+        <div class="meta">Serial # ${escapeHTML(d.serial || '—')} • ${Number(d.lat).toFixed(5)}, ${Number(d.lng).toFixed(5)}</div>`;
+      div.addEventListener('click', () => { if (ENGINE === 'google') { const m = markers.find(x => x.__row === d); if (!m) return; map.panTo(m.getPosition()); map.setZoom(Math.max(map.getZoom(), 16)); openInfo(m); } else { const m = leafletMarkers.find(x => x.__row === d); if (!m) return; leafletMap.setView(m.getLatLng(), Math.max(leafletMap.getZoom(), 16)); openInfo(m); } }); frag.appendChild(div); });
+    list.appendChild(frag);
+  }
+
+  // ---------- Misc helpers ----------
+  function setCounts(shown) { const total = getMarkerCount(); el('count').textContent = `${total} pins`; if (shown === undefined || shown === total) { el('filtered').style.display = 'none'; } else { el('filtered').style.display = ''; el('filteredCount').textContent = shown; } }
+  function setStatus(msg) { el('status').textContent = msg; clearTimeout(setStatus._t); setStatus._t = setTimeout(() => el('status').textContent = '', 3000); }
+  function throttle(fn, ms) { let t=0,lastArgs=null,queued=false; return function(...args){ const now=Date.now(); if (!t || now-t>=ms) { t=now; fn.apply(this,args); } else if (!queued) { queued=true; lastArgs=args; setTimeout(()=>{ queued=false; t=Date.now(); fn.apply(this,lastArgs); }, ms-(now-t)); } } }
+  function escapeHTML(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#039;'}[c])); }
+  function downloadSample() { const header=['(A)','(B)','(C)','(D)','Street # (E)','Dir (F)','Street (G)','Business (H)','Description (I)','Lat (J)','Lng (K)','(L)','(M)','(N)','(O)','(P)','Serial # (Q)']; const rows=[header,['','','','', '123','N','Main St','ShopCo','Valve box near corner','41.881832','-87.623177','','','','','','','A001'],['','','','', '456','','Oak Ave','Cafe','Meter pit behind house','41.884250','-87.632446','','','','','','','B219'],['','','','', '79','S','Lake Shore Dr','Pavilion','Manhole by park','41.891552','-87.608750','','','','','','','C777']]; const ws=XLSX.utils.aoa_to_sheet(rows); const wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, 'Sample'); const blob=XLSX.write(wb, { bookType:'xlsx', type:'array' }); const url=URL.createObjectURL(new Blob([blob], { type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })); const a=document.createElement('a'); a.href=url; a.download='sample_pit_locations.xlsx'; a.click(); URL.revokeObjectURL(url); }
+  function showKeyWarning(msg) { const box = el('keyWarn'); box.style.display = ''; box.textContent = msg + ' See console for details if available.'; }
+  function hideKeyWarning() { el('keyWarn').style.display = 'none'; }
+  </script>
+</body>
+</html>
