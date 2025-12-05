@@ -90,7 +90,7 @@
     /* Floating buttons */
     .fab{
       position:fixed;
-      z-index:25;
+      z-index: 9999; /* ensure we sit above Leaflet tiles & controls */
       border-radius:999px;
       box-shadow:var(--shadow);
       border:1px solid var(--border);
@@ -99,6 +99,7 @@
       align-items:center;
       justify-content:center;
       cursor:pointer;
+      pointer-events:auto;
     }
     /* Menu bottom-left so it never overlaps Leaflet zoom controls */
     #menuBtn{
@@ -115,6 +116,22 @@
       height:56px;
       font-size:20px;
     }
+/* Make sure Leaflet tiles/controls sit below our floating buttons */
+.leaflet-pane,
+.leaflet-control-container {
+  z-index: 400 !important;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 400 !important;
+}
+
+/* Map container at base level */
+#map {
+  position: relative;
+  z-index: 1;
+}
 
     /* Mobile drawer overlay */
     #shade{
