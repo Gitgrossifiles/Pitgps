@@ -85,12 +85,17 @@
       margin-top:3px;
     }
 
-    #map{height:100%;width:100%}
+    #map{
+      height:100%;
+      width:100%;
+      position:relative;
+      z-index:1;
+    }
 
-    /* Floating buttons */
+    /* Floating buttons (on top of Leaflet) */
     .fab{
       position:fixed;
-      z-index: 9999; /* ensure we sit above Leaflet tiles & controls */
+      z-index:9999; /* ensure above Leaflet tiles & controls */
       border-radius:999px;
       box-shadow:var(--shadow);
       border:1px solid var(--border);
@@ -101,7 +106,7 @@
       cursor:pointer;
       pointer-events:auto;
     }
-    /* Menu bottom-left so it never overlaps Leaflet zoom controls */
+    /* Menu bottom-left */
     #menuBtn{
       left:12px;
       bottom:16px;
@@ -109,6 +114,15 @@
       height:52px;
       font-size:22px;
     }
+    /* Current location above fit button on right */
+    #locFab{
+      right:12px;
+      bottom:84px;
+      width:52px;
+      height:52px;
+      font-size:20px;
+    }
+    /* Fit-to-pins bottom-right */
     #fitFab{
       right:12px;
       bottom:16px;
@@ -116,22 +130,6 @@
       height:56px;
       font-size:20px;
     }
-/* Make sure Leaflet tiles/controls sit below our floating buttons */
-.leaflet-pane,
-.leaflet-control-container {
-  z-index: 400 !important;
-}
-
-.leaflet-top,
-.leaflet-bottom {
-  z-index: 400 !important;
-}
-
-/* Map container at base level */
-#map {
-  position: relative;
-  z-index: 1;
-}
 
     /* Mobile drawer overlay */
     #shade{
@@ -146,6 +144,14 @@
     #shade.show{
       opacity:1;
       pointer-events:auto;
+    }
+
+    /* Make sure Leaflet things are below our fabs */
+    .leaflet-pane,
+    .leaflet-control-container,
+    .leaflet-top,
+    .leaflet-bottom{
+      z-index:400 !important;
     }
 
     /* Mobile behavior */
@@ -175,6 +181,7 @@
 <body>
   <div id="shade"></div>
   <button id="menuBtn" class="fab" title="Menu">☰</button>
+  <button id="locFab" class="fab" title="Jump to current location">📍</button>
   <button id="fitFab" class="fab" title="Fit to pins">🗺️</button>
 
   <div class="app">
@@ -191,7 +198,9 @@
         <div class="row">
           <label for="search">Search (address, business, description, serial)</label>
           <input id="search" type="text" placeholder="Type to filter…" />
+          <button id="clearBtn" style="margin-top:4px;">Clear filter</button>
         </div>
+
       </div>
 
       <div id="list" class="list"></div>
@@ -222,7 +231,8 @@
     let leafletMarkers = [];
     let leafletCluster = null;
     let dataRows = [];
-    let allRows = []; // keeps original for filtering
+    let allRows = [];
+    let currentLocMarker = null;
     const PRELOAD_URL = './data/pit_locations.json';
 
     const el = id => document.getElementById(id);
@@ -251,6 +261,49 @@
     window.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeDrawer();
     });
+
+    // --- Current location button ---
+    el('locFab').onclick = () => {
+      jumpToCurrentLocation();
+    };
+
+    function jumpToCurrentLocation(){
+      if (!navigator.geolocation){
+        alert('Geolocation is not supported by this browser.');
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          const { latitude, longitude } = pos.coords;
+          const lat = clamp(latitude, -85, 85);
+          const lng = clamp(longitude, -180, 180);
+          const latlng = L.latLng(lat, lng);
+
+          // Center map
+          if (leafletMap){
+            leafletMap.setView(latlng, 17);
+          }
+
+          // Add or move a marker for current location
+          if (currentLocMarker){
+            currentLocMarker.setLatLng(latlng);
+          } else {
+            currentLocMarker = L.marker(latlng, {
+              title: 'Your location'
+            }).addTo(leafletMap);
+          }
+        },
+        err => {
+          console.warn('Geolocation error', err);
+          alert('Unable to get current location: ' + err.message);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+        }
+      );
+    }
 
     // --- Load data from JSON ---
     async function loadPreloaded(){
@@ -302,6 +355,14 @@
 
       // Wire search after map ready
       el('search').addEventListener('input', throttle(applyFilter, 120));
+      el('clearBtn').onclick = () => {
+        el('search').value = '';
+        dataRows = allRows.slice();
+        renderMarkers(dataRows);
+        renderList(dataRows);
+        updateSummary();
+        fitToPins();
+      };
     }
 
     // --- Markers ---
@@ -404,7 +465,6 @@
         div.addEventListener('click', () => {
           const latlng = L.latLng(d.lat, d.lng);
           leafletMap.setView(latlng, Math.max(leafletMap.getZoom(), 16));
-          // Find marker for popup
           const m = leafletMarkers.find(mk => mk.__row === d);
           if (m) openInfo(m);
           closeDrawer();
