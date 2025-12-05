@@ -3,57 +3,190 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>Spreadsheet → Map Pins</title>
+  <title>Pit Locations Map</title>
   <style>
     :root{
       --bg:#f8fafc; --panel:#ffffff; --text:#111827; --muted:#6b7280; --accent:#2563eb; --accent-ink:#ffffff;
       --border:#e5e7eb; --overlay:rgba(0,0,0,.25); --shadow:0 10px 30px rgba(0,0,0,.12);
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    .app{display:grid;grid-template-columns:380px 1fr;height:100%}
-    .sidebar{background:var(--panel);border-right:1px solid var(--border);display:flex;flex-direction:column;z-index:20}
-    .header{padding:16px 16px 8px;border-bottom:1px solid var(--border)}
-    h1{font-size:16px;margin:0 0 8px;font-weight:800}
-    .sub{font-size:12px;color:var(--muted)}
-    .controls{padding:12px 16px;display:grid;gap:10px;border-bottom:1px solid var(--border)}
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif
+    }
+    .app{
+      display:grid;
+      grid-template-columns:380px 1fr;
+      height:100%;
+    }
+    .sidebar{
+      background:var(--panel);
+      border-right:1px solid var(--border);
+      display:flex;
+      flex-direction:column;
+      z-index:20;
+    }
+    .header{
+      padding:16px 16px 8px;
+      border-bottom:1px solid var(--border);
+    }
+    h1{
+      font-size:16px;
+      margin:0 0 8px;
+      font-weight:800;
+    }
+    .sub{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .controls{
+      padding:12px 16px;
+      display:grid;
+      gap:10px;
+      border-bottom:1px solid var(--border);
+    }
     .row{display:grid;gap:8px}
     label{font-size:12px;color:var(--muted)}
-    input[type=file],input[type=text],input[type=password],select,button{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--text);min-height:44px}
-    input::file-selector-button{border:0;margin-right:10px;padding:10px 12px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:700}
-    .btnrow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    button.primary{background:var(--accent);color:var(--accent-ink);font-weight:700;border-color:transparent}
+    input[type=file],
+    input[type=text],
+    input[type=password],
+    select,
+    button{
+      width:100%;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--text);
+      min-height:44px;
+      font-size:14px;
+    }
+    input::file-selector-button{
+      border:0;
+      margin-right:10px;
+      padding:10px 12px;
+      border-radius:10px;
+      background:var(--accent);
+      color:var(--accent-ink);
+      font-weight:700;
+    }
+    .btnrow{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+    }
+    button.primary{
+      background:var(--accent);
+      color:var(--accent-ink);
+      font-weight:700;
+      border-color:transparent;
+    }
     button.ghost{background:#fff}
     button.toggle{background:#fff}
 
-    .stats{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--muted)}
-    .list{flex:1;overflow:auto}
-    .item{padding:10px 16px;border-bottom:1px solid var(--border);cursor:pointer}
+    .stats{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      border-bottom:1px solid var(--border);
+      font-size:12px;
+      color:var(--muted);
+    }
+    .list{
+      flex:1;
+      overflow:auto;
+    }
+    .item{
+      padding:10px 16px;
+      border-bottom:1px solid var(--border);
+      cursor:pointer;
+    }
     .item:hover{background:#f1f5f9}
-    .title{font-size:14px;font-weight:700}
-    .meta{font-size:12px;color:var(--muted);margin-top:4px}
+    .title{
+      font-size:14px;
+      font-weight:700;
+    }
+    .meta{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
+    }
 
     #map{height:100%;width:100%}
 
     /* Floating buttons */
-    .fab{position:fixed;z-index:25;border-radius:999px;box-shadow:var(--shadow);border:1px solid var(--border);background:#fff}
-    #menuBtn{top:12px;left:12px;width:48px;height:48px;font-size:20px}
-    #fitFab{right:12px;bottom:16px;width:56px;height:56px;font-size:20px}
+    .fab{
+      position:fixed;
+      z-index:25;
+      border-radius:999px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+    #menuBtn{
+      top:12px;
+      left:12px;
+      width:48px;
+      height:48px;
+      font-size:20px;
+    }
+    #fitFab{
+      right:12px;
+      bottom:16px;
+      width:56px;
+      height:56px;
+      font-size:20px;
+    }
 
     /* Mobile drawer overlay */
-    #shade{position:fixed;inset:0;background:var(--overlay);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:19}
-    #shade.show{opacity:1;pointer-events:auto}
+    #shade{
+      position:fixed;
+      inset:0;
+      background:var(--overlay);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease;
+      z-index:19;
+    }
+    #shade.show{
+      opacity:1;
+      pointer-events:auto;
+    }
 
     /* Mobile behavior */
     @media(max-width:900px){
       .app{grid-template-columns:1fr}
-      .sidebar{position:fixed;top:0;left:0;height:100%;width:86vw;max-width:420px;transform:translateX(-100%);transition:transform .28s cubic-bezier(.2,.8,.2,1);box-shadow:var(--shadow)}
+      .sidebar{
+        position:fixed;
+        top:0;
+        left:0;
+        height:100%;
+        width:86vw;
+        max-width:420px;
+        transform:translateX(-100%);
+        transition:transform .28s cubic-bezier(.2,.8,.2,1);
+        box-shadow:var(--shadow);
+      }
       .sidebar.open{transform:translateX(0)}
-      /* Map sits underneath */
       #map{height:100vh}
     }
 
-    .alert{background:#fff4f2;color:#9a3412;border:1px solid #fdba74;padding:10px 12px;border-radius:10px;font-size:12px}
+    .alert{
+      background:#fff4f2;
+      color:#9a3412;
+      border:1px solid #fdba74;
+      padding:10px 12px;
+      border-radius:10px;
+      font-size:12px;
+    }
     .ok{color:#16a34a}
   </style>
 </head>
@@ -65,37 +198,53 @@
   <div class="app">
     <aside id="drawer" class="sidebar">
       <div class="header">
-        <h1>Spreadsheet → Map Pins</h1>
-        <div class="sub">Preloads <code>./data/pit_locations.json</code> on page load. Google Maps primary; OSM fallback.</div>
+        <h1>Pit Locations Map</h1>
+        <div class="sub">
+          Preloads <code>./data/pit_locations.json</code> on page load. Google Maps primary; OpenStreetMap fallback.
+        </div>
       </div>
+
       <div class="controls">
         <div class="row">
           <label for="gmKey">0) Google Maps API key</label>
           <input id="gmKey" type="password" placeholder="Paste your key (stored locally)" />
-          <div class="sub">You can also pass <code>?key=YOUR_KEY</code> in the URL. Key is saved in localStorage.</div>
+          <div class="sub">
+            You can also pass <code>?key=YOUR_KEY</code> in the URL. Key is saved in localStorage.
+          </div>
           <div class="btnrow">
             <button id="loadMapsBtn" class="primary">Load / Reload Google Maps</button>
             <button id="useOSMBtn" class="ghost">Use OpenStreetMap</button>
           </div>
-          <div id="keyWarn" class="alert" style="display:none">If Google Maps fails to load (e.g., <b>BillingNotEnabledMapError</b>), enable billing or click <b>Use OpenStreetMap</b>.</div>
+          <div id="keyWarn" class="alert" style="display:none">
+            If Google Maps fails to load (e.g., <b>BillingNotEnabledMapError</b>), enable billing or click
+            <b>Use OpenStreetMap</b>.
+          </div>
         </div>
+
         <div class="row">
           <label>Preloaded dataset</label>
           <div class="btnrow">
             <button id="reloadPreloadBtn" class="ghost">Reload Preloaded Data</button>
             <span class="sub" id="preloadStatus" style="align-self:center"></span>
           </div>
-          <div class="sub">Auto-fetches <code>./data/pit_locations.json</code> on page load and renders all pins.</div>
+          <div class="sub">
+            Auto-fetches <code>./data/pit_locations.json</code> on page load and renders all pins.
+          </div>
         </div>
+
         <div class="row">
           <label for="fileInput">1) Upload .xlsx/.csv</label>
           <input id="fileInput" type="file" accept=".xlsx,.xls,.csv" />
-          <div class="sub">E=Street #, F=Dir, G=Street, H=Business, I=Description, J=Lat, K=Lng, Q=Serial #</div>
+          <div class="sub">
+            E=Street #, F=Dir, G=Street, H=Business, I=Description, J=Lat, K=Lng, Q=Serial #
+          </div>
         </div>
+
         <div class="row">
           <label for="search">2) Search</label>
           <input id="search" type="text" placeholder="Type: 123, Main, N, description, or serial…" />
         </div>
+
         <div class="row">
           <label for="mode">Filter by field</label>
           <select id="mode">
@@ -107,151 +256,627 @@
             <option value="serial">Serial #</option>
           </select>
         </div>
+
         <div class="btnrow">
           <button id="fitBtn" class="primary">Fit to pins</button>
           <button id="resetBtn" class="ghost">Show all</button>
         </div>
+
         <div class="btnrow">
           <button id="clusterToggle" class="toggle">Clustering: On</button>
           <button id="downloadBtn" class="ghost" title="Download a sample template for testing">Sample file</button>
         </div>
+
         <div id="selftest" class="sub"></div>
       </div>
+
       <div class="stats">
         <span id="count">0 pins</span>
         <span id="filtered" style="display:none">• <span id="filteredCount">0</span> shown</span>
         <span id="status" style="margin-left:auto"></span>
       </div>
+
       <div id="list" class="list"></div>
     </aside>
 
     <main id="map"></main>
   </div>
 
+  <!-- SheetJS for parsing Excel in the browser -->
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <!-- Google MarkerClusterer UMD -->
   <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
   <script>
   // ---------- State & helpers ----------
-  let ENGINE='google';
-  let map,bounds,infoWindow; // Google
-  let leafletMap,leafletMarkers=[],leafletCluster; // OSM
-  let dataRows=[]; let markers=[]; let clusterer=null; let clusteringEnabled=true;
-  let preloadReady=false, preloadError=null;
+  let ENGINE = 'google';
+  let map, bounds, infoWindow;          // Google
+  let leafletMap, leafletMarkers = [], leafletCluster; // OSM
+  let dataRows = [];
+  let markers = [];
+  let clusterer = null;
+  let clusteringEnabled = true;
+  let preloadReady = false;
+  let preloadError = null;
 
-  const el=id=>document.getElementById(id);
-  const fmt=v=> (v===undefined||v===null)?"":String(v).trim();
-  const clamp=(n,min,max)=>Math.min(Math.max(n,min),max);
-  const toNum=v=>{ if(v===undefined||v===null||v==="") return NaN; return Number(String(v).replace(/[°,]/g,'').trim()); };
+  const el = id => document.getElementById(id);
+  const fmt = v => (v === undefined || v === null) ? "" : String(v).trim();
+  const clamp = (n, min, max) => Math.min(Math.max(n, min), max);
+  const toNum = v => {
+    if (v === undefined || v === null || v === "") return NaN;
+    return Number(String(v).replace(/[°,]/g,'').trim());
+  };
 
-  // ---------- Self-tests (existing + added) ----------
+  // ---------- Self-tests ----------
   (function tests(){
-    const T=[]; const eq=(n,g,e)=>T.push({n,ok:Object.is(g,e)||(Number.isNaN(g)&&Number.isNaN(e)),g,e});
-    eq('toNum basic',toNum('41.1234'),41.1234);
-    eq('toNum °',toNum('41.1234°'),41.1234);
-    eq('toNum empty -> NaN', Number.isNaN(toNum(''))?true:false, true);
-    eq('fmt trims', fmt('  abc '),'abc');
+    const T = [];
+    const eq = (n, g, e) => T.push({
+      n,
+      ok: Object.is(g,e) || (Number.isNaN(g) && Number.isNaN(e)),
+      g, e
+    });
+
+    eq('toNum basic', toNum('41.1234'), 41.1234);
+    eq('toNum °', toNum('41.1234°'), 41.1234);
+    eq('toNum empty -> NaN', Number.isNaN(toNum('')) ? true : false, true);
+    eq('fmt trims', fmt('  abc '), 'abc');
     eq('clamp lo', clamp(-100,-85,85), -85);
     eq('clamp hi', clamp(181,-180,180), 180);
-    const sample={street_num:'1',street_dir:'N',street:'Main',business:'Shop',description:'Desc',lat:41,lng:-87,serial:'S1'};
+    const sample = {street_num:'1',street_dir:'N',street:'Main',business:'Shop',description:'Desc',lat:41,lng:-87,serial:'S1'};
     eq('json fields', ['street_num','street_dir','street','business','description','lat','lng','serial'].every(k=>k in sample), true);
-    el('selftest').innerHTML=`Self‑test: <span class="${T.every(t=>t.ok)?'ok':''}">${T.filter(t=>t.ok).length}/${T.length} passed</span>`;
-    console.log('[Self‑tests]',T);
+
+    const passed = T.filter(t=>t.ok).length;
+    el('selftest').innerHTML = `Self-test: <span class="${passed===T.length?'ok':''}">${passed}/${T.length} passed</span>`;
+    console.log('[Self-tests]', T);
   })();
 
   // ---------- Preload JSON on startup ----------
-  const PRELOAD_URL='./data/pit_locations.json';
+  const PRELOAD_URL = './data/pit_locations.json';
+
   (async function preload(){
     try{
-      const r=await fetch(PRELOAD_URL,{cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`);
-      const json=await r.json(); if(!Array.isArray(json)) throw new Error('Invalid JSON: expected array');
-      dataRows=json.map((o,i)=>({
-        rowIndex:i+1, lat:Number(o.lat), lng:Number(o.lng),
-        streetNum:fmt(o.street_num), streetDir:fmt(o.street_dir), street:fmt(o.street), business:fmt(o.business),
-        address:[fmt(o.street_num),fmt(o.street_dir),fmt(o.street)].filter(Boolean).join(' ').replace(/\s+/g,' '),
-        description:fmt(o.description), serial:fmt(o.serial)
-      })).filter(d=>Number.isFinite(d.lat)&&Number.isFinite(d.lng));
-      preloadReady=true; preloadError=null; el('preloadStatus').textContent=`Preloaded ${dataRows.length} rows`;
-      if(window.google&&window.google.maps||window.L){ renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins(); }
-    }catch(e){ preloadError=e; el('preloadStatus').textContent=`Preload error: ${e.message}`; console.error(e); }
+      const r = await fetch(PRELOAD_URL, { cache:'no-store' });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const json = await r.json();
+      if (!Array.isArray(json)) throw new Error('Invalid JSON: expected array');
+
+      dataRows = json.map((o, i) => ({
+        rowIndex: i+1,
+        lat: Number(o.lat),
+        lng: Number(o.lng),
+        streetNum: fmt(o.street_num),
+        streetDir: fmt(o.street_dir),
+        street: fmt(o.street),
+        business: fmt(o.business),
+        address: [fmt(o.street_num), fmt(o.street_dir), fmt(o.street)]
+          .filter(Boolean)
+          .join(' ')
+          .replace(/\s+/g,' '),
+        description: fmt(o.description),
+        serial: fmt(o.serial)
+      })).filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lng));
+
+      preloadReady = true;
+      preloadError = null;
+      el('preloadStatus').textContent = `Preloaded ${dataRows.length} rows`;
+
+      if ((window.google && window.google.maps) || window.L) {
+        renderMarkers();
+        renderList(dataRows);
+        setCounts();
+        fitToVisiblePins();
+      }
+    }catch(e){
+      preloadError = e;
+      el('preloadStatus').textContent = `Preload error: ${e.message}`;
+      console.error('Preload error', e);
+    }
   })();
-  el('reloadPreloadBtn').addEventListener('click',async()=>{
-    el('preloadStatus').textContent='Reloading…';
-    try{ const r=await fetch(PRELOAD_URL+`?t=${Date.now()}`,{cache:'no-store'}); const j=await r.json(); dataRows=j.map((o,i)=>({
-      rowIndex:i+1, lat:Number(o.lat), lng:Number(o.lng), streetNum:fmt(o.street_num), streetDir:fmt(o.street_dir), street:fmt(o.street), business:fmt(o.business),
-      address:[fmt(o.street_num),fmt(o.street_dir),fmt(o.street)].filter(Boolean).join(' ').replace(/\s+/g,' '), description:fmt(o.description), serial:fmt(o.serial)
-    })).filter(d=>Number.isFinite(d.lat)&&Number.isFinite(d.lng)); el('preloadStatus').textContent=`Preloaded ${dataRows.length} rows`; renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins(); }catch(e){ el('preloadStatus').textContent=`Preload error: ${e.message}`; }
+
+  el('reloadPreloadBtn').addEventListener('click', async () => {
+    el('preloadStatus').textContent = 'Reloading…';
+    try{
+      const r = await fetch(PRELOAD_URL + `?t=${Date.now()}`, { cache:'no-store' });
+      const j = await r.json();
+      dataRows = j.map((o,i)=>({
+        rowIndex:i+1,
+        lat:Number(o.lat),
+        lng:Number(o.lng),
+        streetNum:fmt(o.street_num),
+        streetDir:fmt(o.street_dir),
+        street:fmt(o.street),
+        business:fmt(o.business),
+        address:[fmt(o.street_num),fmt(o.street_dir),fmt(o.street)].filter(Boolean).join(' ').replace(/\s+/g,' '),
+        description:fmt(o.description),
+        serial:fmt(o.serial)
+      })).filter(d=>Number.isFinite(d.lat)&&Number.isFinite(d.lng));
+      preloadReady = true;
+      el('preloadStatus').textContent = `Preloaded ${dataRows.length} rows`;
+      renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins();
+    }catch(e){
+      preloadError = e;
+      el('preloadStatus').textContent = `Preload error: ${e.message}`;
+    }
   });
 
   // ---------- Drawer & overlay (mobile) ----------
-  const drawer=el('drawer'), shade=el('shade');
-  function openDrawer(){ drawer.classList.add('open'); shade.classList.add('show'); }
-  function closeDrawer(){ drawer.classList.remove('open'); shade.classList.remove('show'); }
-  el('menuBtn').onclick=()=>{ if(drawer.classList.contains('open')) closeDrawer(); else openDrawer(); };
-  el('fitFab').onclick=()=>{ fitToVisiblePins(); };
-  shade.onclick=closeDrawer; window.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDrawer(); });
+  const drawer = el('drawer');
+  const shade = el('shade');
+
+  function openDrawer(){
+    drawer.classList.add('open');
+    shade.classList.add('show');
+  }
+  function closeDrawer(){
+    drawer.classList.remove('open');
+    shade.classList.remove('show');
+  }
+
+  el('menuBtn').onclick = () => {
+    if (drawer.classList.contains('open')) closeDrawer();
+    else openDrawer();
+  };
+  el('fitFab').onclick = () => { fitToVisiblePins(); };
+  shade.onclick = closeDrawer;
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeDrawer();
+  });
 
   // ---------- Key management ----------
-  const URL_KEY=new URLSearchParams(location.search).get('key'); const LS_KEY='gmaps_api_key'; if(URL_KEY) localStorage.setItem(LS_KEY,URL_KEY);
-  el('gmKey').value=localStorage.getItem(LS_KEY)||URL_KEY||'';
-  el('loadMapsBtn').addEventListener('click',()=>{ const key=el('gmKey').value.trim(); if(!key){showKeyWarning('No API key provided.');return;} localStorage.setItem(LS_KEY,key); ENGINE='google'; loadGoogleMaps(key); closeDrawer(); });
-  el('useOSMBtn').addEventListener('click',async()=>{ ENGINE='leaflet'; await ensureLeafletLoaded(); hideKeyWarning(); initLeaflet(); renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins(); closeDrawer(); });
+  const URL_KEY = new URLSearchParams(location.search).get('key');
+  const LS_KEY  = 'gmaps_api_key';
+
+  if (URL_KEY) localStorage.setItem(LS_KEY, URL_KEY);
+  el('gmKey').value = localStorage.getItem(LS_KEY) || URL_KEY || '';
+
+  el('loadMapsBtn').addEventListener('click', () => {
+    const key = el('gmKey').value.trim();
+    if (!key) { showKeyWarning('No API key provided.'); return; }
+    localStorage.setItem(LS_KEY, key);
+    ENGINE = 'google';
+    loadGoogleMaps(key);
+    closeDrawer();
+  });
+
+  el('useOSMBtn').addEventListener('click', async () => {
+    ENGINE = 'leaflet';
+    await ensureLeafletLoaded();
+    hideKeyWarning();
+    initLeaflet();
+    renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins();
+    closeDrawer();
+  });
 
   // Try Google automatically if a key exists
-  if(el('gmKey').value){ loadGoogleMaps(el('gmKey').value); } else { showKeyWarning('Paste your API key or switch to OpenStreetMap.'); }
+  if (el('gmKey').value) {
+    loadGoogleMaps(el('gmKey').value);
+  } else {
+    showKeyWarning('Paste your API key or switch to OpenStreetMap.');
+  }
 
   // ---------- Google Maps loader ----------
-  function loadGoogleMaps(key){ if(window.google&&window.google.maps){ tryInitGoogle(); return; }
-    const old=document.getElementById('gmapsjs'); if(old) old.remove();
-    const s=document.createElement('script'); s.id='gmapsjs'; s.async=true; s.defer=true; s.src=`https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&callback=__gmapsInit`;
-    s.onerror=()=>showKeyWarning('Failed to load Google Maps script.');
-    window.__gmapsInit=()=>{ tryInitGoogle(); };
-    setTimeout(()=>{ if(!window.google||!window.google.maps){ showKeyWarning('Google Maps failed to initialize (invalid key or billing disabled). Use OpenStreetMap to continue.'); } },8000);
+  function loadGoogleMaps(key){
+    if (window.google && window.google.maps) {
+      tryInitGoogle();
+      return;
+    }
+    const old = document.getElementById('gmapsjs');
+    if (old) old.remove();
+
+    const s = document.createElement('script');
+    s.id = 'gmapsjs';
+    s.async = true;
+    s.defer = true;
+    s.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&callback=__gmapsInit`;
+    s.onerror = () => showKeyWarning('Failed to load Google Maps script.');
+    window.__gmapsInit = () => { tryInitGoogle(); };
+    setTimeout(() => {
+      if (!window.google || !window.google.maps) {
+        showKeyWarning('Google Maps failed to initialize (invalid key or billing disabled). Use OpenStreetMap to continue.');
+      }
+    }, 8000);
     document.head.appendChild(s);
   }
-  function tryInitGoogle(){ hideKeyWarning(); try{ initGoogle(); }catch(e){ console.error(e); showKeyWarning('Google Maps initialized but app failed to start.'); } }
 
-  function initGoogle(){ ENGINE='google'; map=new google.maps.Map(document.getElementById('map'),{center:{lat:41.8781,lng:-87.6298},zoom:11,mapTypeControl:false,streetViewControl:false,fullscreenControl:true}); bounds=new google.maps.LatLngBounds(); infoWindow=new google.maps.InfoWindow(); wireUI(); if(preloadReady){ renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins(); } }
+  function tryInitGoogle(){
+    hideKeyWarning();
+    try{
+      initGoogle();
+    }catch(e){
+      console.error(e);
+      showKeyWarning('Google Maps initialized but app failed to start. See console for details if available.');
+    }
+  }
+
+  function initGoogle(){
+    ENGINE = 'google';
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: 41.8781, lng: -87.6298 },
+      zoom: 11,
+      mapTypeControl:false,
+      streetViewControl:false,
+      fullscreenControl:true
+    });
+    bounds = new google.maps.LatLngBounds();
+    infoWindow = new google.maps.InfoWindow();
+    wireUI();
+    if (preloadReady) {
+      renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins();
+    }
+  }
 
   // ---------- Leaflet (OSM) ----------
-  async function ensureLeafletLoaded(){ if(window.L) return; const add=(tag,attrs)=>{ const el=document.createElement(tag); Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v)); document.head.appendChild(el); return el; };
+  async function ensureLeafletLoaded(){
+    if (window.L) return;
+    const add = (tag, attrs) => {
+      const e = document.createElement(tag);
+      Object.entries(attrs).forEach(([k,v]) => e.setAttribute(k,v));
+      document.head.appendChild(e);
+      return e;
+    };
     add('link',{rel:'stylesheet',href:'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'});
     add('link',{rel:'stylesheet',href:'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css'});
     add('link',{rel:'stylesheet',href:'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css'});
-    await new Promise((res,rej)=>{ const s=add('script',{src:'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'}); s.onload=res; s.onerror=rej; });
-    await new Promise((res,rej)=>{ const s=add('script',{src:'https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js'}); s.onload=res; s.onerror=rej; });
+    await new Promise((res,rej)=>{ const s = add('script',{src:'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'}); s.onload=res; s.onerror=rej; });
+    await new Promise((res,rej)=>{ const s = add('script',{src:'https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js'}); s.onload=res; s.onerror=rej; });
   }
-  function initLeaflet(){ ENGINE='leaflet'; leafletMap=L.map('map',{zoomControl:true}); leafletMap.setView([41.8781,-87.6298],11); L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(leafletMap); bounds=L.latLngBounds([]); wireUI(); if(preloadReady){ renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins(); } }
+
+  function initLeaflet(){
+    ENGINE = 'leaflet';
+    leafletMap = L.map('map',{zoomControl:true});
+    leafletMap.setView([41.8781,-87.6298],11);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+      maxZoom:19,
+      attribution:'&copy; OpenStreetMap contributors'
+    }).addTo(leafletMap);
+    bounds = L.latLngBounds([]);
+    wireUI();
+    if (preloadReady) {
+      renderMarkers(); renderList(dataRows); setCounts(); fitToVisiblePins();
+    }
+  }
 
   // ---------- Wire inputs ----------
-  function wireUI(){ el('fileInput').onchange=handleFile; el('search').oninput=throttle(applyFilter,120); el('mode').onchange=applyFilter; el('fitBtn').onclick=()=>{fitToVisiblePins(); closeDrawer();}; el('resetBtn').onclick=()=>{el('search').value=''; applyFilter(); fitToVisiblePins();}; el('clusterToggle').onclick=()=>{ clusteringEnabled=!clusteringEnabled; el('clusterToggle').textContent=`Clustering: ${clusteringEnabled?'On':'Off'}`; renderMarkers(); applyFilter(); } ; el('downloadBtn').onclick=downloadSample; }
+  function wireUI(){
+    el('fileInput').onchange = handleFile;
+    el('search').oninput = throttle(applyFilter,120);
+    el('mode').onchange = applyFilter;
+    el('fitBtn').onclick = () => { fitToVisiblePins(); closeDrawer(); };
+    el('resetBtn').onclick = () => {
+      el('search').value = '';
+      applyFilter();
+      fitToVisiblePins();
+    };
+    el('clusterToggle').onclick = () => {
+      clusteringEnabled = !clusteringEnabled;
+      el('clusterToggle').textContent = `Clustering: ${clusteringEnabled ? 'On' : 'Off'}`;
+      renderMarkers();
+      applyFilter();
+    };
+    el('downloadBtn').onclick = downloadSample;
+  }
 
   // ---------- Upload handling ----------
-  async function handleFile(evt){ const file=evt.target.files?.[0]; if(!file) return; setStatus(`Reading ${file.name}…`); const buf=await file.arrayBuffer(); let rows=[]; if(file.name.toLowerCase().endsWith('.csv')){ const wb=XLSX.read(new Uint8Array(buf),{type:'array'}); rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{header:1,raw:false}); } else { const wb=XLSX.read(buf,{type:'array'}); rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{header:1,raw:false}); }
-    const out=[]; for(let r=1;r<rows.length;r++){ const row=rows[r]||[]; const streetNum=fmt(row[4]); const streetDir=fmt(row[5]); const street=fmt(row[6]); const business=fmt(row[7]); const desc=fmt(row[8]); const lat=toNum(row[9]); const lng=toNum(row[10]); const serial=fmt(row[16]); if(!Number.isFinite(lat)||!Number.isFinite(lng)) continue; const address=[streetNum,streetDir,street].filter(Boolean).join(' ').replace(/\s+/g,' '); out.push({rowIndex:r,lat,lng,streetNum,streetDir,street,business,address,description:desc,serial}); }
-    dataRows=out; renderMarkers(); renderList(dataRows); setCounts(); if(getMarkerCount()) fitToVisiblePins(); setStatus(`Loaded ${dataRows.length} rows`); closeDrawer(); }
+  async function handleFile(evt){
+    const file = evt.target.files?.[0];
+    if (!file) return;
+    setStatus(`Reading ${file.name}…`);
+    const buf = await file.arrayBuffer();
+    let rows = [];
+    if (file.name.toLowerCase().endsWith('.csv')){
+      const wb = XLSX.read(new Uint8Array(buf), { type:'array' });
+      rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header:1, raw:false });
+    } else {
+      const wb = XLSX.read(buf, { type:'array' });
+      rows = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header:1, raw:false });
+    }
+
+    const out = [];
+    for (let r = 1; r < rows.length; r++){
+      const row = rows[r] || [];
+      const streetNum = fmt(row[4]);
+      const streetDir = fmt(row[5]);
+      const street    = fmt(row[6]);
+      const business  = fmt(row[7]);
+      const desc      = fmt(row[8]);
+      const lat       = toNum(row[9]);
+      const lng       = toNum(row[10]);
+      const serial    = fmt(row[16]);
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
+      const address = [streetNum, streetDir, street].filter(Boolean).join(' ').replace(/\s+/g,' ');
+      out.push({rowIndex:r, lat, lng, streetNum, streetDir, street, business, address, description:desc, serial});
+    }
+
+    dataRows = out;
+    renderMarkers(); renderList(dataRows); setCounts();
+    if (getMarkerCount()) fitToVisiblePins();
+    setStatus(`Loaded ${dataRows.length} rows`);
+    closeDrawer();
+  }
 
   // ---------- Markers ----------
-  function clearMarkers(){ if(ENGINE==='google'){ if(clusterer){clusterer.clearMarkers(); clusterer=null;} markers.forEach(m=>m.setMap(null)); markers=[]; bounds=new google.maps.LatLngBounds(); } else { if(leafletCluster){leafletMap.removeLayer(leafletCluster); leafletCluster=null;} leafletMarkers.forEach(m=>leafletMap.removeLayer(m)); leafletMarkers=[]; bounds=L.latLngBounds([]); } }
-  function renderMarkers(){ if(ENGINE==='google'&&(!window.google||!window.google.maps)){ showKeyWarning('Google Maps not available.'); return; } clearMarkers(); for(const d of dataRows){ const lat=clamp(d.lat,-85,85), lng=clamp(d.lng,-180,180); if(ENGINE==='google'){ const marker=new google.maps.Marker({position:{lat,lng},map,title:d.address||d.description||`Row ${d.rowIndex}`}); marker.__row=d; markers.push(marker); bounds.extend(marker.getPosition()); marker.addListener('click',()=>openInfo(marker)); } else { const marker=L.marker([lat,lng]); marker.__row=d; marker.on('click',()=>openInfo(marker)); leafletMarkers.push(marker); bounds.extend([lat,lng]); } }
-    if(ENGINE==='google'){ if(clusteringEnabled&&markers.length){ const {MarkerClusterer}=window['@googlemaps/markerclusterer']; clusterer=new MarkerClusterer({map,markers}); } }
-    else { if(clusteringEnabled&&leafletMarkers.length&&window.L&&L.markerClusterGroup){ leafletCluster=L.markerClusterGroup(); leafletMarkers.forEach(m=>leafletCluster.addLayer(m)); leafletMap.addLayer(leafletCluster); } else { leafletMarkers.forEach(m=>m.addTo(leafletMap)); } } }
-  function openInfo(marker){ const d=marker.__row; const title=escapeHTML(d.address||'—'); const businessLine=d.business?`<div style="font-weight:600;font-size:12px">${escapeHTML(d.business)}</div>`:''; const html=`<div style="min-width:260px"><div style="font-weight:800;font-size:14px">${title}</div>${businessLine}<div style="color:#64748b;font-size:12px;margin:4px 0 8px">${escapeHTML(d.description||'')}</div><div style="font-size:12px;line-height:1.4"><div><b>Serial #:</b> ${escapeHTML(d.serial||'—')}</div><div><b>Lat/Lng:</b> ${Number(d.lat).toPrecision(10)}, ${Number(d.lng).toPrecision(10)}</div><div><b>Row:</b> ${d.rowIndex+1}</div></div></div>`; if(ENGINE==='google'){ if(!infoWindow) infoWindow=new google.maps.InfoWindow(); infoWindow.setContent(html); infoWindow.open({map,anchor:marker}); } else { marker.bindPopup(html).openPopup(); } }
-  function fitToVisiblePins(){ if(ENGINE==='google'){ const b=new google.maps.LatLngBounds(); let any=false; for(const m of markers){ if(m.getVisible?m.getVisible():true){ b.extend(m.getPosition()); any=true; } } if(any) map.fitBounds(b,{top:60,right:20,bottom:100,left:20}); } else { if(leafletMarkers.length){ const b=L.latLngBounds(leafletMarkers.map(m=>m.getLatLng())); leafletMap.fitBounds(b.pad(0.12)); } } }
-  function getMarkerCount(){ return ENGINE==='google'?markers.length:leafletMarkers.length; }
+  function clearMarkers(){
+    if (ENGINE === 'google'){
+      if (clusterer){ clusterer.clearMarkers(); clusterer = null; }
+      markers.forEach(m => m.setMap(null));
+      markers = [];
+      bounds = new google.maps.LatLngBounds();
+    } else {
+      if (leafletCluster){ leafletMap.removeLayer(leafletCluster); leafletCluster = null; }
+      leafletMarkers.forEach(m => leafletMap.removeLayer(m));
+      leafletMarkers = [];
+      bounds = L.latLngBounds([]);
+    }
+  }
+
+  function renderMarkers(){
+    if (ENGINE === 'google' && (!window.google || !window.google.maps)){
+      showKeyWarning('Google Maps not available. Load with a valid key or switch to OpenStreetMap.');
+      return;
+    }
+    clearMarkers();
+
+    for (const d of dataRows){
+      const lat = clamp(d.lat, -85, 85);
+      const lng = clamp(d.lng, -180, 180);
+      if (ENGINE === 'google'){
+        const marker = new google.maps.Marker({
+          position:{lat,lng},
+          map,
+          title: d.address || d.description || `Row ${d.rowIndex}`
+        });
+        marker.__row = d;
+        markers.push(marker);
+        bounds.extend(marker.getPosition());
+        marker.addListener('click', () => openInfo(marker));
+      } else {
+        const marker = L.marker([lat,lng]);
+        marker.__row = d;
+        marker.on('click', () => openInfo(marker));
+        leafletMarkers.push(marker);
+        bounds.extend([lat,lng]);
+      }
+    }
+
+    if (ENGINE === 'google'){
+      if (clusteringEnabled && markers.length && window.markerClusterer && window.markerClusterer.MarkerClusterer){
+        const { MarkerClusterer } = window.markerClusterer;
+        clusterer = new MarkerClusterer({ map, markers });
+      } else if (clusteringEnabled && markers.length){
+        console.warn('MarkerClusterer library not available; skipping clustering.');
+      }
+    } else {
+      if (clusteringEnabled && leafletMarkers.length && window.L && L.markerClusterGroup){
+        leafletCluster = L.markerClusterGroup();
+        leafletMarkers.forEach(m => leafletCluster.addLayer(m));
+        leafletMap.addLayer(leafletCluster);
+      } else {
+        leafletMarkers.forEach(m => m.addTo(leafletMap));
+      }
+    }
+  }
+
+  function openInfo(marker){
+    const d = marker.__row;
+    const title = escapeHTML(d.address || '—');
+    const businessLine = d.business ? `<div style="font-weight:600;font-size:12px">${escapeHTML(d.business)}</div>` : '';
+    const html = `
+      <div style="min-width:260px">
+        <div style="font-weight:800;font-size:14px">${title}</div>
+        ${businessLine}
+        <div style="color:#64748b;font-size:12px;margin:4px 0 8px">${escapeHTML(d.description || '')}</div>
+        <div style="font-size:12px;line-height:1.4">
+          <div><b>Serial #:</b> ${escapeHTML(d.serial || '—')}</div>
+          <div><b>Lat/Lng:</b> ${Number(d.lat).toPrecision(10)}, ${Number(d.lng).toPrecision(10)}</div>
+          <div><b>Row:</b> ${d.rowIndex + 1}</div>
+        </div>
+      </div>
+    `;
+    if (ENGINE === 'google'){
+      if (!infoWindow) infoWindow = new google.maps.InfoWindow();
+      infoWindow.setContent(html);
+      infoWindow.open({ map, anchor: marker });
+    } else {
+      marker.bindPopup(html).openPopup();
+    }
+  }
+
+  function fitToVisiblePins(){
+    if (ENGINE === 'google'){
+      const b = new google.maps.LatLngBounds();
+      let any = false;
+      for (const m of markers){
+        if (m.getVisible ? m.getVisible() : true){
+          b.extend(m.getPosition());
+          any = true;
+        }
+      }
+      if (any) map.fitBounds(b, { top:60, right:20, bottom:100, left:20 });
+    } else {
+      if (leafletMarkers.length){
+        const b = L.latLngBounds(leafletMarkers.map(m => m.getLatLng()));
+        leafletMap.fitBounds(b.pad(0.12));
+      }
+    }
+  }
+
+  function getMarkerCount(){
+    return ENGINE === 'google' ? markers.length : leafletMarkers.length;
+  }
 
   // ---------- Search & sidebar ----------
-  function applyFilter(){ const q=el('search').value.trim().toLowerCase(); const mode=el('mode').value; let passed=0; const matched=[]; if(ENGINE==='google'){ for(const m of markers){ const d=m.__row; const hay=haystack(d,mode); const ok=q===''?true:hay.includes(q); if(m.setVisible) m.setVisible(ok); if(ok){passed++; matched.push(d);} } if(clusterer) clusterer.repaint?.(); } else { if(leafletCluster){leafletMap.removeLayer(leafletCluster); leafletCluster=null;} leafletMarkers.forEach(m=>leafletMap.removeLayer(m)); const f=[]; leafletMarkers.forEach(m=>{ const d=m.__row; const ok=q===''?true:haystack(d,mode).includes(q); if(ok){f.push(m); passed++; matched.push(d);} }); if(clusteringEnabled&&f.length&&window.L&&L.markerClusterGroup){ leafletCluster=L.markerClusterGroup(); f.forEach(m=>leafletCluster.addLayer(m)); leafletMap.addLayer(leafletCluster); } else { f.forEach(m=>m.addTo(leafletMap)); } } setCounts(passed); renderList(matched); }
-  function haystack(d,mode){ const address=(d.address||'').toLowerCase(); const number=(d.streetNum||'').toLowerCase(); const street=(d.street||'').toLowerCase(); const description=(d.description||'').toLowerCase(); const serial=(d.serial||'').toLowerCase(); const business=(d.business||'').toLowerCase(); switch(mode){case'address':return address;case'number':return number;case'street':return street;case'description':return description;case'serial':return serial;default:return [address,description,serial,business].join(' | ');} }
-  function renderList(rows){ const list=el('list'); list.innerHTML=''; const frag=document.createDocumentFragment(); rows.forEach(d=>{ const div=document.createElement('div'); div.className='item'; div.innerHTML=`<div class="title">${escapeHTML(d.address||'(no address)')}</div><div class="meta">${escapeHTML(d.business||'')}</div><div class="meta">${escapeHTML(d.description||'')}</div><div class="meta">Serial # ${escapeHTML(d.serial||'—')} • ${Number(d.lat).toFixed(5)}, ${Number(d.lng).toFixed(5)}</div>`; div.addEventListener('click',()=>{ if(ENGINE==='google'){ const m=markers.find(x=>x.__row===d); if(!m) return; map.panTo(m.getPosition()); map.setZoom(Math.max(map.getZoom(),16)); openInfo(m);} else { const m=leafletMarkers.find(x=>x.__row===d); if(!m) return; leafletMap.setView(m.getLatLng(),Math.max(leafletMap.getZoom(),16)); openInfo(m);} closeDrawer(); }); frag.appendChild(div); }); list.appendChild(frag); }
+  function applyFilter(){
+    const q = el('search').value.trim().toLowerCase();
+    const mode = el('mode').value;
+    let passed = 0;
+    const matched = [];
+
+    if (ENGINE === 'google'){
+      for (const m of markers){
+        const d = m.__row;
+        const hay = haystack(d, mode);
+        const ok = q === '' ? true : hay.includes(q);
+        if (m.setVisible) m.setVisible(ok);
+        if (ok){ passed++; matched.push(d); }
+      }
+      if (clusterer) clusterer.repaint?.();
+    } else {
+      if (leafletCluster){ leafletMap.removeLayer(leafletCluster); leafletCluster = null; }
+      leafletMarkers.forEach(m => leafletMap.removeLayer(m));
+      const f = [];
+      leafletMarkers.forEach(m => {
+        const d = m.__row;
+        const ok = q === '' ? true : haystack(d, mode).includes(q);
+        if (ok){ f.push(m); passed++; matched.push(d); }
+      });
+      if (clusteringEnabled && f.length && window.L && L.markerClusterGroup){
+        leafletCluster = L.markerClusterGroup();
+        f.forEach(m => leafletCluster.addLayer(m));
+        leafletMap.addLayer(leafletCluster);
+      } else {
+        f.forEach(m => m.addTo(leafletMap));
+      }
+    }
+
+    setCounts(passed);
+    renderList(matched);
+  }
+
+  function haystack(d, mode){
+    const address = (d.address || '').toLowerCase();
+    const number  = (d.streetNum || '').toLowerCase();
+    const street  = (d.street || '').toLowerCase();
+    const description = (d.description || '').toLowerCase();
+    const serial  = (d.serial || '').toLowerCase();
+    const business = (d.business || '').toLowerCase();
+
+    switch(mode){
+      case 'address': return address;
+      case 'number':  return number;
+      case 'street':  return street;
+      case 'description': return description;
+      case 'serial':  return serial;
+      default: return [address, description, serial, business].join(' | ');
+    }
+  }
+
+  function renderList(rows){
+    const list = el('list');
+    list.innerHTML = '';
+    const frag = document.createDocumentFragment();
+
+    rows.forEach(d => {
+      const div = document.createElement('div');
+      div.className = 'item';
+      div.innerHTML = `
+        <div class="title">${escapeHTML(d.address || '(no address)')}</div>
+        <div class="meta">${escapeHTML(d.business || '')}</div>
+        <div class="meta">${escapeHTML(d.description || '')}</div>
+        <div class="meta">
+          Serial # ${escapeHTML(d.serial || '—')}
+          • ${Number(d.lat).toFixed(5)}, ${Number(d.lng).toFixed(5)}
+        </div>
+      `;
+      div.addEventListener('click', () => {
+        if (ENGINE === 'google'){
+          const m = markers.find(x => x.__row === d);
+          if (!m) return;
+          map.panTo(m.getPosition());
+          map.setZoom(Math.max(map.getZoom(),16));
+          openInfo(m);
+        } else {
+          const m = leafletMarkers.find(x => x.__row === d);
+          if (!m) return;
+          leafletMap.setView(m.getLatLng(), Math.max(leafletMap.getZoom(),16));
+          openInfo(m);
+        }
+        closeDrawer();
+      });
+      frag.appendChild(div);
+    });
+
+    list.appendChild(frag);
+  }
 
   // ---------- Misc ----------
-  function setCounts(shown){ const total=getMarkerCount(); el('count').textContent=`${total} pins`; if(shown===undefined||shown===total){ el('filtered').style.display='none'; } else { el('filtered').style.display=''; el('filteredCount').textContent=shown; } }
-  function setStatus(msg){ el('status').textContent=msg; clearTimeout(setStatus._t); setStatus._t=setTimeout(()=>el('status').textContent='',3000); }
-  function throttle(fn,ms){ let t=0,last=null,queued=false; return function(...a){ const now=Date.now(); if(!t||now-t>=ms){ t=now; fn.apply(this,a);} else if(!queued){ queued=true; last=a; setTimeout(()=>{ queued=false; t=Date.now(); fn.apply(this,last); }, ms-(now-t)); } } }
-  function escapeHTML(s){ return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#039;'}[c])); }
-  function downloadSample(){ const header=['(A)','(B)','(C)','(D)','Street # (E)','Dir (F)','Street (G)','Business (H)','Description (I)','Lat (J)','Lng (K)','(L)','(M)','(N)','(O)','(P)','Serial # (Q)']; const rows=[header,['','','','','123','N','Main St','ShopCo','Valve box near corner','41.881832','-87.623177','','','','','','','A001'],['','','','','456','','Oak Ave','Cafe','Meter pit behind house','41.884250','-87.632446','','','','','','','B219'],['','','','','79','S','Lake Shore Dr','Pavilion','Manhole by park','41.891552','-87.608750','','','','','','','C777']]; const ws=XLSX.utils.aoa_to_sheet(rows); const wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb,ws,'Sample'); const blob=XLSX.write(wb,{bookType:'xlsx',type:'array'}); const url=URL.createObjectURL(new Blob([blob],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})); const a=document.createElement('a'); a.href=url; a.download='sample_pit_locations.xlsx'; a.click(); URL.revokeObjectURL(url); }
-  function showKeyWarning(msg){ const box=el('keyWarn'); box.style.display=''; box.textContent=msg+' See console for details if available.'; }
-  function hideKeyWarning(){ el('keyWarn').style.display='none'; }
+  function setCounts(shown){
+    const total = getMarkerCount();
+    el('count').textContent = `${total} pins`;
+    if (shown === undefined || shown === total){
+      el('filtered').style.display = 'none';
+    } else {
+      el('filtered').style.display = '';
+      el('filteredCount').textContent = shown;
+    }
+  }
+
+  function setStatus(msg){
+    el('status').textContent = msg;
+    clearTimeout(setStatus._t);
+    setStatus._t = setTimeout(() => el('status').textContent = '', 3000);
+  }
+
+  function throttle(fn, ms){
+    let t = 0, last = null, queued = false;
+    return function(...a){
+      const now = Date.now();
+      if (!t || now - t >= ms){
+        t = now;
+        fn.apply(this,a);
+      } else if (!queued){
+        queued = true;
+        last = a;
+        setTimeout(() => {
+          queued = false;
+          t = Date.now();
+          fn.apply(this,last);
+        }, ms - (now - t));
+      }
+    };
+  }
+
+  function escapeHTML(s){
+    return String(s ?? '').replace(/[&<>\"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+    }[c]));
+  }
+
+  function downloadSample(){
+    const header=[
+      '(A)','(B)','(C)','(D)',
+      'Street # (E)','Dir (F)','Street (G)','Business (H)',
+      'Description (I)','Lat (J)','Lng (K)',
+      '(L)','(M)','(N)','(O)','(P)','Serial # (Q)'
+    ];
+    const rows=[
+      header,
+      ['','','','','123','N','Main St','ShopCo','Valve box near corner','41.881832','-87.623177','','','','','','','A001'],
+      ['','','','','456','','Oak Ave','Cafe','Meter pit behind house','41.884250','-87.632446','','','','','','','B219'],
+      ['','','','','79','S','Lake Shore Dr','Pavilion','Manhole by park','41.891552','-87.608750','','','','','','','C777']
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(rows);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sample');
+    const blob = XLSX.write(wb, {bookType:'xlsx', type:'array'});
+    const url = URL.createObjectURL(new Blob([blob], {
+      type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    }));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'sample_pit_locations.xlsx';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function showKeyWarning(msg){
+    const box = el('keyWarn');
+    box.style.display = '';
+    box.textContent = msg + ' See console for details if available.';
+  }
+  function hideKeyWarning(){
+    el('keyWarn').style.display = 'none';
+  }
   </script>
 </body>
 </html>
+
