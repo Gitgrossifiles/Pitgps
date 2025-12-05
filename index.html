@@ -200,7 +200,6 @@
           <input id="search" type="text" placeholder="Type to filter…" />
           <button id="clearBtn" style="margin-top:4px;">Clear filter</button>
         </div>
-
       </div>
 
       <div id="list" class="list"></div>
@@ -279,12 +278,10 @@
           const lng = clamp(longitude, -180, 180);
           const latlng = L.latLng(lat, lng);
 
-          // Center map
           if (leafletMap){
             leafletMap.setView(latlng, 17);
           }
 
-          // Add or move a marker for current location
           if (currentLocMarker){
             currentLocMarker.setLatLng(latlng);
           } else {
@@ -315,16 +312,13 @@
         if (!Array.isArray(json)) throw new Error('Invalid JSON: expected array');
 
         allRows = json.map((o,i)=>({
-          rowIndex:i+1,
-          lat:Number(o.lat),
-          lng:Number(o.lng),
-          streetNum:fmt(o.street_num),
-          streetDir:fmt(o.street_dir),
-          street:fmt(o.street),
-          business:fmt(o.business),
-          address:fmt(o.address),
-          description:fmt(o.description),
-          serial:fmt(o.serial)
+          rowIndex: i+1,
+          lat: Number(o.lat),
+          lng: Number(o.lng),
+          address: fmt(o.address),
+          business: fmt(o.business),
+          description: fmt(o.description),
+          serial: fmt(o.serial)
         })).filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lng));
 
         dataRows = allRows.slice();
@@ -345,14 +339,12 @@
     // --- Init Leaflet map ---
     function initMap(){
       leafletMap = L.map('map',{zoomControl:true});
-      // Center roughly on Chicago area; fitToPins will adjust once markers loaded
       leafletMap.setView([41.8781,-87.6298], 11);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
         maxZoom:19,
         attribution:'&copy; OpenStreetMap contributors'
       }).addTo(leafletMap);
 
-      // Wire search after map ready
       el('search').addEventListener('input', throttle(applyFilter, 120));
       el('clearBtn').onclick = () => {
         el('search').value = '';
@@ -453,7 +445,7 @@
         const div = document.createElement('div');
         div.className = 'item';
         div.innerHTML = `
-          <div class="title">${escapeHTML(fmt(d.address))}</div>
+          <div class="title">${escapeHTML(d.address || '(no address)')}</div>
           <div class="meta">${escapeHTML(d.business || '')}</div>
           <div class="meta">${escapeHTML(d.description || '')}</div>
           <div class="meta">
