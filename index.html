@@ -322,8 +322,7 @@
           streetDir:fmt(o.street_dir),
           street:fmt(o.street),
           business:fmt(o.business),
-          address:[fmt(o.street_num),fmt(o.street_dir),fmt(o.street)]
-            .filter(Boolean).join(' ').replace(/\s+/g,' '),
+          address:fmt(o.address),
           description:fmt(o.description),
           serial:fmt(o.serial)
         })).filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lng));
@@ -454,7 +453,7 @@
         const div = document.createElement('div');
         div.className = 'item';
         div.innerHTML = `
-          <div class="title">${escapeHTML(d.address || '(no address)')}</div>
+          <div class="title">${escapeHTML(fmt(d.address))}</div>
           <div class="meta">${escapeHTML(d.business || '')}</div>
           <div class="meta">${escapeHTML(d.description || '')}</div>
           <div class="meta">
