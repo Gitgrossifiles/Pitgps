@@ -1846,5 +1846,21 @@
     "lat": 42.1268,
     "lng": -88.00156,
     "serial": "D7123322"
+  },
+  {
+    "address": "840 E Kensington Rd",
+    "business": "Kensington School",
+    "description": "East Side near fence in line with FACP Room",
+    "lat": 42.081589,
+    "lng": -87.973208,
+    "serial": "H17327977"
+  },
+  {
+    "address": "711 E Palatine Rd",
+    "business": "Chipolte (Southpoint Plaza)",
+    "description": "In parking spot near curb in front of AT&T",
+    "lat": 42.109576,
+    "lng": -87.973208,
+    "serial": "20072799"
   }
 ]
