@@ -1862,5 +1862,93 @@
     "lat": 42.109576,
     "lng": -87.973208,
     "serial": "20072799"
+  },
+  {
+    "address": "257 Grant Street",
+    "business": "Corps of Engineers",
+    "description": "North side inside gate",
+    "lat": 40.7051046,
+    "lng": -89.5670445,
+    "serial": "27445323"
+  },
+  {
+    "address": "2735 Dr. Martin Luther King Jr. Drive",
+    "business": "Peoria Park District",
+    "description": "At lincoln ave and MLD Dr split North side in gras near hot box",
+    "lat": 40.6816978,
+    "lng": -89.6396020,
+    "serial": "27771317"
+  },
+  {
+    "address": "530 NE Glen oak Avenue",
+    "business": "St Francis Medical Center",
+    "description": "SW Parking garage corner",
+    "lat": 40.703417,
+    "lng": -89.5900371,
+    "serial": "27445322"
+  },
+  {
+    "address": "530 NE Glen ak Avenue",
+    "business": "St Francis Medical Center",
+    "description": "Cancer Institute entrance SE across from other pit",
+    "lat": 40.7034932,
+    "lng": -89.5896944,
+    "serial": "27445321"
+  },
+  {
+    "address": "3737 W Reservoir Boulevard",
+    "business": "Woodridge Manor",
+    "description": "NE corner by driveway",
+    "lat": 40.7324626,
+    "lng": -89.6521554,
+    "serial": "27445325"
+  },
+  {
+    "address": "740 Janes Avenue",
+    "business": "MD4 Bolingbrook",
+    "description": "South pit, east of building",
+    "lat": 41.7211611,
+    "lng": -88.0383386,
+    "serial": "70351544"
+  },
+  {
+    "address": "714 S Weber Road",
+    "business": "Christian Brothers Auto",
+    "description": "West side of building, east side of street",
+    "lat": 41.6742376,
+    "lng": -88.1242421,
+    "serial": "64196509"
+  },
+  {
+    "address": "1281 Claar Boulevard",
+    "business": "The Learning Experience",
+    "description": "NW corner by driveway",
+    "lat": 41.6746481,
+    "lng": -88.1239960,
+    "serial": "70351375"
+  },
+  {
+    "address": "215 North Weber Road",
+    "business": "MD2 Bolingbrook",
+    "description": "West side middle of building in parking spot",
+    "lat": 41.7010088,
+    "lng": -88.1256053,
+    "serial": "70351371"
+  },
+  {
+    "address": "1001 W Bluff Road",
+    "business": "RJW Logistics",
+    "description": "North side, center of building in lot across from FACP",
+    "lat": 41.6767236,
+    "lng": -88.0440913,
+    "serial": "64156680"
+  },
+  {
+    "address": "901 W Bluff Road",
+    "business": "Geodis",
+    "description": "SE in trailer parking spot",
+    "lat": 41.6746118,
+    "lng": -88.0466169,
+    "serial": "64156679"
   }
 ]
