@@ -1950,5 +1950,45 @@
     "lat": 41.6746118,
     "lng": -88.0466169,
     "serial": "64156679"
+  },
+    {
+    "address": "Saunders & Hawthorne",
+    "business": "Riverwoods Feed",
+    "description": "NE Corner Saunders & Hawthorne, South Meter",
+    "lat": 42.161957,
+    "lng": -87.883338,
+    "serial": "7123269"
+  },
+      {
+    "address": "Saunders & Hawthorne",
+    "business": "Riverwoods Feed",
+    "description": "NE Corner Saunders & Hawthorne, North Meter",
+    "lat": 42.161957,
+    "lng": -87.883338,
+    "serial": "7123265"
+  },
+      {
+    "address": "Deerfield Rd & Oakhurst",
+    "business": "Riverwoods Feed",
+    "description": "S Side of Deerfield Rd Across from Oakhurst",
+    "lat": 42.167389,
+    "lng": -87.880985,
+    "serial": "7155287"
+  },
+      {
+    "address": "800 Poplar Lane",
+    "business": "Deerfield Duplex Assosciation",
+    "description": "South side of 846 Poplar, East of Hydrant",
+    "lat": 42.161520,
+    "lng": -87.849345,
+    "serial": "35746561"
+  },
+      {
+    "address": "0 Island Court",
+    "business": "Fountains of Deerfield",
+    "description": "Behind Gazebo N side, east of north pond",
+    "lat": 42.159394,
+    "lng": -87.848922,
+    "serial": "231040759"
   }
 ]
