@@ -1991,4 +1991,44 @@
     "lng": -87.848922,
     "serial": "231040759"
   }
+      {
+    "address": "405 Sheridan Road",
+    "business": "Resident Compound",
+    "description": "West of drive to 405 Sheridan North side of street",
+    "lat": 42.1597215,
+    "lng": -87.7699387,
+    "serial": "12254"
+  }
+      {
+    "address": "1255 Sheridan Road",
+    "business": "Lake Shore Country Club",
+    "description": "In Front of 29 Sheridan just north of sidewalk",
+    "lat": 42.1523951,
+    "lng": -87.7657943,
+    "serial": "81614127"
+  }
+      {
+    "address": "800 Deerfield Road",
+    "business": "Park Claridge Condos",
+    "description": "30 Ft East of Driveway South side of street",
+    "lat": 42.1814450,
+    "lng": -87.8032199,
+    "serial": "86282654"
+  }
+      {
+    "address": "1320 Park Avenue W",
+    "business": "Brooke Estates",
+    "description": "Left Side of Main entrance door in bushes",
+    "lat": 42.1878181,
+    "lng": -87.8194382,
+    "serial": "84541373"
+  }
+      {
+    "address": "1240 Park Avenue W",
+    "business": "Brooke Estates",
+    "description": "Right of Main entrance in bushes",
+    "lat": 42.1871555,
+    "lng": -87.8203655,
+    "serial": "85156295"
+  }
 ]
