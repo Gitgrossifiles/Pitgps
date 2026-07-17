@@ -2030,5 +2030,53 @@
     "lat": 42.1871555,
     "lng": -87.8203655,
     "serial": "85156295"
-  }
+  }, 
+      {
+    "address": "965 Leonard Wood W",
+    "business": "Highwood Interconnect",
+    "description": "Near flag pole in parkway",
+    "lat": 42.2169920,
+    "lng": -87.81659.07,
+    "serial": "81614128"
+  },
+      {
+    "address": "2000 Deerfield Road",
+    "business": "Village of Deerfield",
+    "description": "SE Corner Deerfield & Carriage Way",
+    "lat": 42.1683217,
+    "lng": -87.8271613,
+    "serial": "80792156"
+  },
+      {
+    "address": "1034 E Old Elm Road",
+    "business": "Lake Forest Interconnect",
+    "description": "SW Corner Green Bay & Old Elm",
+    "lat": 42.2179490,
+    "lng": -87.8375025,
+    "serial": "66174782"
+  },
+      {
+    "address": "2060 Landon Lane",
+    "business": "Lincolnshire Interconnect",
+    "description": "15' West of Hydrant End of Road West side",
+    "lat": 42.196361,
+    "lng": -87.851889,
+    "serial": "70327541"
+  },
+      {
+    "address": "2002 Half Day Road",
+    "business": "Lincolshire Interconnect",
+    "description": "Half Day Road & Kelly Lane South Side of Half Day near CHP sign",
+    "lat": 42.1997954,
+    "lng": -87.8509072,
+    "serial": "16033582"
+  },
+      {
+    "address": "1454 Ridge Road",
+    "business": "Deerfield Interconnect",
+    "description": "Backyard NW Corner South of River",
+    "lat": 42.1782394,
+    "lng": -87.8365091,
+    "serial": "81835321"
+  },
 ]
