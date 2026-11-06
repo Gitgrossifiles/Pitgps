@@ -122,6 +122,18 @@
       height:52px;
       font-size:20px;
     }
+    /* Satellite toggle above current-location button on right */
+    #satFab{
+      right:12px;
+      bottom:152px;
+      width:52px;
+      height:52px;
+      font-size:20px;
+    }
+    #satFab.on{
+      background:#0f172a;
+      color:#fff;
+    }
     /* Fit-to-pins bottom-right */
     #fitFab{
       right:12px;
@@ -182,6 +194,7 @@
   <div id="shade"></div>
   <button id="menuBtn" class="fab" title="Menu">☰</button>
   <button id="locFab" class="fab" title="Jump to current location">📍</button>
+  <button id="satFab" class="fab" title="Toggle satellite view">🛰️</button>
   <button id="fitFab" class="fab" title="Fit to pins">🗺️</button>
 
   <div class="app">
@@ -232,6 +245,9 @@
     let dataRows = [];
     let allRows = [];
     let currentLocMarker = null;
+    let streetLayer = null;
+    let satelliteLayer = null;
+    let satelliteOn = false;
     const PRELOAD_URL = './data/pit_locations.json';
 
     const el = id => document.getElementById(id);
@@ -340,10 +356,19 @@
     function initMap(){
       leafletMap = L.map('map',{zoomControl:true});
       leafletMap.setView([41.8781,-87.6298], 11);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-        maxZoom:19,
+      streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        maxZoom:20,
+        maxNativeZoom:19,
         attribution:'&copy; OpenStreetMap contributors'
-      }).addTo(leafletMap);
+      });
+      satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{
+        maxZoom:20,
+        maxNativeZoom:19,
+        attribution:'Imagery &copy; Esri'
+      });
+      // Remember the last choice on this device; street view is the default.
+      setBaseLayer(localStorage.getItem('pitgps.basemap') === 'satellite');
+      el('satFab').onclick = () => setBaseLayer(!satelliteOn);
 
       el('search').addEventListener('input', throttle(applyFilter, 120));
       el('clearBtn').onclick = () => {
@@ -354,6 +379,22 @@
         updateSummary();
         fitToPins();
       };
+    }
+
+    // --- Base map (street / satellite) ---
+    function setBaseLayer(useSatellite){
+      if (!leafletMap || !streetLayer || !satelliteLayer) return;
+      satelliteOn = !!useSatellite;
+      if (satelliteOn){
+        if (leafletMap.hasLayer(streetLayer)) leafletMap.removeLayer(streetLayer);
+        if (!leafletMap.hasLayer(satelliteLayer)) satelliteLayer.addTo(leafletMap);
+      } else {
+        if (leafletMap.hasLayer(satelliteLayer)) leafletMap.removeLayer(satelliteLayer);
+        if (!leafletMap.hasLayer(streetLayer)) streetLayer.addTo(leafletMap);
+      }
+      el('satFab').classList.toggle('on', satelliteOn);
+      el('satFab').title = satelliteOn ? 'Switch to street map' : 'Switch to satellite view';
+      try{ localStorage.setItem('pitgps.basemap', satelliteOn ? 'satellite' : 'street'); }catch(e){}
     }
 
     // --- Markers ---
@@ -399,6 +440,12 @@
           <div style="font-size:12px;line-height:1.4">
             <div><b>Serial #:</b> ${escapeHTML(d.serial || '—')}</div>
             <div><b>Lat/Lng:</b> ${Number(d.lat).toFixed(6)}, ${Number(d.lng).toFixed(6)}</div>
+          </div>
+          <div style="margin-top:8px">
+            <a href="${googleMapsUrl(d)}" target="_blank" rel="noopener"
+               style="display:inline-block;padding:6px 10px;border-radius:8px;background:#0f172a;color:#fff;text-decoration:none;font-size:12px;font-weight:600">
+              Open in Google Maps
+            </a>
           </div>
         </div>
       `;
@@ -479,6 +526,12 @@
     }
 
     // --- Utils ---
+    function googleMapsUrl(d){
+      // Drops a pin at the pit in the Google Maps app (or web). Satellite can be toggled there.
+      const q = Number(d.lat).toFixed(6) + ',' + Number(d.lng).toFixed(6);
+      return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+    }
+
     function escapeHTML(s){
       return String(s ?? '').replace(/[&<>\"']/g, c => ({
         '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
