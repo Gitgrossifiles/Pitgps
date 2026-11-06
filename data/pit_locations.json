@@ -1876,7 +1876,7 @@
     "business": "Peoria Park District",
     "description": "At lincoln ave and MLD Dr split North side in gras near hot box",
     "lat": 40.6816978,
-    "lng": -89.6396020,
+    "lng": -89.639602,
     "serial": "27771317"
   },
   {
@@ -1924,7 +1924,7 @@
     "business": "The Learning Experience",
     "description": "NW corner by driveway",
     "lat": 41.6746481,
-    "lng": -88.1239960,
+    "lng": -88.123996,
     "serial": "70351375"
   },
   {
@@ -1951,7 +1951,7 @@
     "lng": -88.0466169,
     "serial": "64156679"
   },
-    {
+  {
     "address": "Saunders & Hawthorne",
     "business": "Riverwoods Feed",
     "description": "NE Corner Saunders & Hawthorne, South Meter",
@@ -1959,7 +1959,7 @@
     "lng": -87.883338,
     "serial": "7123269"
   },
-      {
+  {
     "address": "Saunders & Hawthorne",
     "business": "Riverwoods Feed",
     "description": "NE Corner Saunders & Hawthorne, North Meter",
@@ -1967,7 +1967,7 @@
     "lng": -87.883338,
     "serial": "7123265"
   },
-      {
+  {
     "address": "Deerfield Rd & Oakhurst",
     "business": "Riverwoods Feed",
     "description": "S Side of Deerfield Rd Across from Oakhurst",
@@ -1975,15 +1975,15 @@
     "lng": -87.880985,
     "serial": "7155287"
   },
-      {
+  {
     "address": "800 Poplar Lane",
     "business": "Deerfield Duplex Assosciation",
     "description": "South side of 846 Poplar, East of Hydrant",
-    "lat": 42.161520,
+    "lat": 42.16152,
     "lng": -87.849345,
     "serial": "35746561"
   },
-      {
+  {
     "address": "0 Island Court",
     "business": "Fountains of Deerfield",
     "description": "Behind Gazebo N side, east of north pond",
@@ -1991,7 +1991,7 @@
     "lng": -87.848922,
     "serial": "231040759"
   },
-      {
+  {
     "address": "405 Sheridan Road",
     "business": "Resident Compound",
     "description": "West of drive to 405 Sheridan North side of street",
@@ -1999,7 +1999,7 @@
     "lng": -87.7699387,
     "serial": "12254"
   },
-      {
+  {
     "address": "1255 Sheridan Road",
     "business": "Lake Shore Country Club",
     "description": "In Front of 29 Sheridan just north of sidewalk",
@@ -2007,15 +2007,15 @@
     "lng": -87.7657943,
     "serial": "81614127"
   },
-      {
+  {
     "address": "800 Deerfield Road",
     "business": "Park Claridge Condos",
     "description": "30 Ft East of Driveway South side of street",
-    "lat": 42.1814450,
+    "lat": 42.181445,
     "lng": -87.8032199,
     "serial": "86282654"
   },
-      {
+  {
     "address": "1320 Park Avenue W",
     "business": "Brooke Estates",
     "description": "Left Side of Main entrance door in bushes",
@@ -2023,23 +2023,23 @@
     "lng": -87.8194382,
     "serial": "84541373"
   },
-      {
+  {
     "address": "1240 Park Avenue W",
     "business": "Brooke Estates",
     "description": "Right of Main entrance in bushes",
     "lat": 42.1871555,
     "lng": -87.8203655,
     "serial": "85156295"
-  }, 
-      {
+  },
+  {
     "address": "965 Leonard Wood W",
     "business": "Highwood Interconnect",
     "description": "Near flag pole in parkway",
-    "lat": 42.2169920,
+    "lat": 42.216992,
     "lng": -87.8165907,
     "serial": "81614128"
   },
-      {
+  {
     "address": "2000 Deerfield Road",
     "business": "Village of Deerfield",
     "description": "SE Corner Deerfield & Carriage Way",
@@ -2047,15 +2047,15 @@
     "lng": -87.8271613,
     "serial": "80792156"
   },
-      {
+  {
     "address": "1034 E Old Elm Road",
     "business": "Lake Forest Interconnect",
     "description": "SW Corner Green Bay & Old Elm",
-    "lat": 42.2179490,
+    "lat": 42.217949,
     "lng": -87.8375025,
     "serial": "66174782"
   },
-      {
+  {
     "address": "2060 Landon Lane",
     "business": "Lincolnshire Interconnect",
     "description": "15' West of Hydrant End of Road West side",
@@ -2063,7 +2063,7 @@
     "lng": -87.851889,
     "serial": "70327541"
   },
-      {
+  {
     "address": "2002 Half Day Road",
     "business": "Lincolshire Interconnect",
     "description": "Half Day Road & Kelly Lane South Side of Half Day near CHP sign",
@@ -2071,12 +2071,132 @@
     "lng": -87.8509072,
     "serial": "16033582"
   },
-      {
+  {
     "address": "1454 Ridge Road",
     "business": "Deerfield Interconnect",
     "description": "Backyard NW Corner South of River",
     "lat": 42.1782394,
     "lng": -87.8365091,
     "serial": "81835321"
+  },
+  {
+    "address": "300 Keokuk Street",
+    "business": "Lincoln College",
+    "description": "North of Gym parking lot in grass",
+    "lat": 40.1589779,
+    "lng": -89.3596303,
+    "serial": "27533692"
+  },
+  {
+    "address": "930 IL Route 121",
+    "business": "IAWC",
+    "description": "IAWC Well 7",
+    "lat": 40.0526418,
+    "lng": -89.2817705,
+    "serial": "27873143"
+  },
+  {
+    "address": "1758 State Route 54",
+    "business": "AG Land FS",
+    "description": "In Lot Near trailers east of tracks",
+    "lat": 40.0146659,
+    "lng": -89.2647448,
+    "serial": "27401596"
+  },
+  {
+    "address": "930 IL Route 121",
+    "business": "IAWC",
+    "description": "Well 5",
+    "lat": 40.0527719,
+    "lng": -89.2818033,
+    "serial": "27445328"
+  },
+  {
+    "address": "1583 700th Street",
+    "business": "Herrin Fertilizer",
+    "description": "'Window well' east side near tracks",
+    "lat": 40.0181201,
+    "lng": -89.2952751,
+    "serial": "27401597"
+  },
+  {
+    "address": "930 Il Route 121",
+    "business": "IAWC",
+    "description": "Well 6",
+    "lat": 40.0525848,
+    "lng": -89.2817705,
+    "serial": "27546211"
+  },
+  {
+    "address": "861 S State Street",
+    "business": "Lincoln Dev. Ctr/Lincoln Estates",
+    "description": "East end parking lot",
+    "lat": 40.1385637,
+    "lng": -89.3772967,
+    "serial": "28006588"
+  },
+  {
+    "address": "861 S State Street",
+    "business": "Illinois Department of Juvenile Justice",
+    "description": "West of State, south of private drive north of kickapoo",
+    "lat": 40.1407426,
+    "lng": -89.3774563,
+    "serial": "28006589"
+  },
+  {
+    "address": "861 S State Street",
+    "business": "Lincoln Dev. Ctr/Lincoln Estates",
+    "description": "SE Corner 1st and Stringer, north of driveway",
+    "lat": 40.1428332,
+    "lng": -89.3828887,
+    "serial": "27569884"
+  },
+  {
+    "address": "200 5th Street",
+    "business": "Regional Housing SS",
+    "description": "North side of I-55BL West of sign",
+    "lat": 40.1470651,
+    "lng": -89.3702881,
+    "serial": "27546212"
+  },
+  {
+    "address": "1200 Wyatt Avenue",
+    "business": "Lincoln Community High School",
+    "description": "1000 Railer Way, east of sidewalk near hydrant",
+    "lat": 40.1371852,
+    "lng": -89.3581843,
+    "serial": "27546209"
+  },
+  {
+    "address": "340 Madigan Drive",
+    "business": "Roanoke Concrete Products",
+    "description": "In grass east of madigan south of driveway",
+    "lat": 40.1515186,
+    "lng": -89.4078883,
+    "serial": "27430799"
+  },
+  {
+    "address": "1601 5th Street",
+    "business": "International Paper Company",
+    "description": "East side building in grass off Lincoln Pkwy",
+    "lat": 40.1459462,
+    "lng": -89.386901,
+    "serial": "27533688"
+  },
+  {
+    "address": "1601 Connolley Road",
+    "business": "Sysco Central",
+    "description": "at bend of madigan and sysco dr in grass",
+    "lat": 40.1508836,
+    "lng": -89.4081887,
+    "serial": "27546210"
+  },
+  {
+    "address": "911 Pekin Street",
+    "business": "Logan County Complex",
+    "description": "In grass west of sherman st",
+    "lat": 40.1454203,
+    "lng": -89.3587804,
+    "serial": "27533691"
   }
 ]
